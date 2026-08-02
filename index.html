@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOGGYS SHOE STUDIO</title>
+    <meta
+      name="description"
+      content="名古屋市千種区高見の靴修理工房 MOGGYS SHOE STUDIO。Leather shoe repair."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="MOGGYS SHOE STUDIO ホーム">
+        <img class="brand__mark" src="assets/logo.webp" alt="" />
+        <span class="brand__text">
+          MOGGYS
+          <small>SHOE STUDIO</small>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="メニュー"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <a href="index.html" aria-current="page">Top</a>
+        <a href="about.html">About</a>
+        <a href="access.html">Access</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__media">
+          <img
+            src="assets/001.jpeg"
+            alt="MOGGYS SHOE STUDIO 店内で靴を手入れする職人"
+          />
+          <div class="hero__shade" aria-hidden="true"></div>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow">Nagoya / Chikusa</p>
+          <h1 class="hero__title">
+            MOGGYS
+            <span>LEATHER SHOE REPAIR</span>
+          </h1>
+          <p class="hero__lead">
+            履き慣れた一足を、もう一度あなたの足へ。名古屋・千種区高見の靴修理工房。
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#contact">公式LINE</a>
+            <a class="btn btn--ghost" href="mailto:info@example.com">メール</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="gallery-title">
+        <div class="section__inner">
+          <p class="section__label reveal">Studio</p>
+          <h2 class="section__title reveal" id="gallery-title">The Atelier</h2>
+          <p class="section__text reveal">
+            店内の光、棚に並ぶ革靴、ミシンの手元。工房の空気をそのまま切り取っています。
+          </p>
+
+          <div class="gallery" style="margin-top: 2.5rem">
+            <figure class="gallery__item gallery__item--tall reveal">
+              <img src="assets/004.jpeg" alt="店内の窓辺と革靴のディスプレイ" />
+            </figure>
+            <figure class="gallery__item reveal">
+              <img src="assets/005.jpeg" alt="ミシンで革靴を縫う手元" />
+            </figure>
+            <figure class="gallery__item reveal">
+              <img src="assets/002.jpeg" alt="MOGGYS SHOE STUDIO の外観" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-band" id="contact" aria-labelledby="contact-title">
+        <div class="section__inner">
+          <div class="reveal">
+            <p class="section__label">Contact</p>
+            <h2 class="section__title" id="contact-title">ご相談はこちら</h2>
+            <p class="section__text">
+              修理のご相談・お見積りは、公式LINEまたはメールからお気軽にどうぞ。
+            </p>
+          </div>
+          <div class="contact-band__actions reveal">
+            <a class="btn btn--ink" href="#">公式LINE</a>
+            <a class="btn btn--line" href="mailto:info@example.com">メールで相談</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">MOGGYS SHOE STUDIO</div>
+        <div class="site-footer__meta">
+          名古屋市千種区高見1-8-5　© 2026 MOGGYS SHOE STUDIO
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

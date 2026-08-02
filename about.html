@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | MOGGYS SHOE STUDIO</title>
+    <meta
+      name="description"
+      content="MOGGYS SHOE STUDIO のコンセプト。「既製靴を、ビスポークに。」"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="MOGGYS SHOE STUDIO ホーム">
+        <img class="brand__mark" src="assets/logo.webp" alt="" />
+        <span class="brand__text">
+          MOGGYS
+          <small>SHOE STUDIO</small>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="メニュー"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <a href="index.html">Top</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="access.html">Access</a>
+      </nav>
+    </header>
+
+    <main>
+      <header class="page-hero">
+        <div class="page-hero__inner">
+          <p class="section__label">About</p>
+          <h1 class="page-hero__title">ABOUT</h1>
+          <p class="page-hero__lead">
+            名古屋市千種区高見にある靴修理工房。履き慣れた一足を、長く付き合えるかたちへ仕立て直します。
+          </p>
+        </div>
+      </header>
+
+      <section class="section" style="padding-top: 0">
+        <div class="section__inner about-grid">
+          <div class="about-copy reveal">
+            <h2>既製靴を、<br />ビスポークに。</h2>
+            <p>
+              既製靴は、生まれたときはまだ「その人の靴」ではありません。履き込み、直しを重ねるほどに足に沿い、歩き方に馴染み、暮らしのスタイルに寄り添う一足へと育っていきます。
+            </p>
+            <p>
+              MOGGYS SHOE STUDIO
+              が目指すのは、そんな「既製靴をビスポークに」変えていく修理です。ソールの張り替えやかかとの補修にとどまらず、これからも長く付き合っていける一足に仕立て直すこと。それが、わたしたちの仕事です。
+            </p>
+            <p>
+              スニーカーも、革靴も、サンダルも。店頭への持ち込みはもちろん、全国からの郵送修理にも対応しています。
+            </p>
+          </div>
+
+          <div class="about-visual reveal">
+            <img
+              src="assets/005.jpeg"
+              alt="革靴をミシンで縫製する職人の手元"
+            />
+          </div>
+        </div>
+
+        <div class="section__inner">
+          <dl class="about-note reveal">
+            <div>
+              <dt>Opened</dt>
+              <dd>2022.07.07</dd>
+            </div>
+            <div>
+              <dt>Service</dt>
+              <dd>革靴 / スニーカー / サンダル</dd>
+            </div>
+            <div>
+              <dt>Order</dt>
+              <dd>店頭持ち込み / 全国郵送</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section contact-band" aria-labelledby="contact-title">
+        <div class="section__inner">
+          <div class="reveal">
+            <p class="section__label">Contact</p>
+            <h2 class="section__title" id="contact-title">ご相談はこちら</h2>
+            <p class="section__text">
+              まずは写真を添えてご相談ください。概算のお見積りも可能です。
+            </p>
+          </div>
+          <div class="contact-band__actions reveal">
+            <a class="btn btn--ink" href="#">公式LINE</a>
+            <a class="btn btn--line" href="mailto:info@example.com">メールで相談</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">MOGGYS SHOE STUDIO</div>
+        <div class="site-footer__meta">
+          名古屋市千種区高見1-8-5　© 2026 MOGGYS SHOE STUDIO
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
