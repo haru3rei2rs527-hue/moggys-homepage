@@ -616,6 +616,72 @@ a {
   min-height: 320px;
 }
 
+/* Instagram */
+
+.instagram-band {
+  padding-top: clamp(3.5rem, 8vh, 5.5rem);
+  padding-bottom: clamp(3.5rem, 8vh, 5.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.instagram-band__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.instagram-band__follow {
+  flex-shrink: 0;
+  margin-bottom: 0.35rem;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.instagram-grid__item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--cream-deep);
+}
+
+.instagram-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease), opacity 0.4s var(--ease);
+}
+
+.instagram-grid__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 38, 34, 0);
+  transition: background 0.4s var(--ease);
+}
+
+.instagram-grid__item:hover img {
+  transform: scale(1.04);
+}
+
+.instagram-grid__item:hover::after {
+  background: rgba(42, 38, 34, 0.12);
+}
+
+@media (max-width: 720px) {
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+}
+
 /* Proposal / menu pages */
 
 .draft-note {
