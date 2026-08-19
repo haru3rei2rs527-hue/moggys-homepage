@@ -574,6 +574,20 @@ a {
   line-height: 1.95;
 }
 
+.text-link {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: var(--sage-deep);
+  border-bottom: 1px solid rgba(95, 107, 84, 0.35);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.text-link:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
 .access-media {
   display: grid;
   gap: 0.75rem;
@@ -616,19 +630,50 @@ a {
   background: rgba(125, 139, 111, 0.08);
 }
 
+.menu-block {
+  margin-top: 3.25rem;
+}
+
+.menu-block__label {
+  margin: 0 0 0.85rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.menu-block__title {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.menu-block__text {
+  margin: 0.85rem 0 0;
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
 .menu-list {
   list-style: none;
-  margin: 2.5rem 0 0;
+  margin: 1.75rem 0 0;
   padding: 0;
   border-top: 1px solid var(--line);
 }
 
 .menu-list li {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 1.25rem 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem 1.5rem;
+  align-items: start;
+  padding: 1.35rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -639,7 +684,7 @@ a {
 
 .menu-list__desc {
   grid-column: 1 / -1;
-  margin: 0.35rem 0 0;
+  margin: 0.15rem 0 0;
   color: var(--ink-soft);
   font-size: 0.88rem;
   line-height: 1.8;
@@ -651,6 +696,46 @@ a {
   letter-spacing: 0.08em;
   color: var(--sage-deep);
   white-space: nowrap;
+  text-align: right;
+}
+
+.menu-list__prices {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: end;
+  min-width: 9.5rem;
+}
+
+.menu-list__price-row {
+  display: grid;
+  grid-template-columns: 4.5rem auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.menu-list__price-row span:first-child {
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .menu-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-list__prices,
+  .menu-list__meta {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .menu-list__price-row {
+    grid-template-columns: 4.5rem auto;
+  }
 }
 
 .product-rows {
