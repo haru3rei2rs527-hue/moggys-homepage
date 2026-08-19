@@ -675,6 +675,24 @@ a {
   background: rgba(42, 38, 34, 0.12);
 }
 
+.instagram-band__hint {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+#instagram-feed[data-state="loading"] {
+  opacity: 0.55;
+  transition: opacity 0.4s var(--ease);
+}
+
+#instagram-feed[data-state="ready"] .instagram-band__hint,
+#instagram-feed[data-state="ready"] ~ .instagram-band__hint {
+  display: none;
+}
+
 @media (max-width: 720px) {
   .instagram-grid {
     grid-template-columns: repeat(3, 1fr);

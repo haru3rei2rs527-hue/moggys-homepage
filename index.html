@@ -87,14 +87,14 @@
               </span>
             </a>
             <a class="gallery__item reveal" href="order.html">
-              <img src="assets/004.jpeg" alt="棚に並ぶ革靴" />
+              <img src="assets/babyshoes.jpg" alt="MOGGYS ベビーシューズ" />
               <span class="gallery__caption">
                 <span class="gallery__caption-en">order</span>
                 <span class="gallery__caption-ja">ベビーシューズ / オーダー</span>
               </span>
             </a>
             <a class="gallery__item reveal" href="collection.html">
-              <img src="assets/001.jpeg" alt="店内の様子" />
+              <img src="assets/collection.jpg" alt="コレクションの靴" />
               <span class="gallery__caption">
                 <span class="gallery__caption-en">collection・lineup</span>
                 <span class="gallery__caption-ja">REND / 中古・整備済み在庫</span>
@@ -131,7 +131,11 @@
             </a>
           </div>
 
-          <div class="instagram-grid">
+          <div
+            class="instagram-grid"
+            id="instagram-feed"
+            data-state="fallback"
+          >
             <a
               class="instagram-grid__item reveal"
               href="https://www.instagram.com/moggys_shoe_studio/"
@@ -157,6 +161,9 @@
               <img src="assets/002.jpeg" alt="Instagramで見る：店舗外観" />
             </a>
           </div>
+          <p class="instagram-band__hint reveal" hidden>
+            ※ Behold 接続後、ここに最新投稿が自動表示されます。
+          </p>
         </div>
       </section>
 
@@ -202,6 +209,7 @@
       </div>
     </footer>
 
+    <script src="instagram.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
