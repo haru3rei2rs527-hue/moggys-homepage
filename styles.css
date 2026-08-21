@@ -475,6 +475,30 @@ a {
 
 /* About layout */
 
+.about-intro {
+  max-width: 40rem;
+}
+
+.about-intro h2 {
+  margin: 0 0 1.5rem;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+}
+
+.about-intro p {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 2.05;
+}
+
+.about-intro p:last-child {
+  margin-bottom: 0;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -501,20 +525,19 @@ a {
 .about-visual {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
   background: var(--cream-deep);
+  aspect-ratio: 4 / 3;
 }
 
 .about-visual img {
   width: 100%;
   height: 100%;
-  min-height: 420px;
   object-fit: cover;
 }
 
 .about-note {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
+  margin-top: 3.25rem;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -534,6 +557,61 @@ a {
   margin: 0.4rem 0 0;
   font-size: 0.95rem;
   color: var(--ink);
+}
+
+.about-owner {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  margin-top: clamp(3.5rem, 8vh, 5.5rem);
+  padding-top: clamp(2.5rem, 5vh, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.about-owner__visual {
+  margin: 0;
+  overflow: hidden;
+  background: var(--cream-deep);
+  aspect-ratio: 4 / 3;
+  position: sticky;
+  top: calc(var(--header-h) + 1.25rem);
+}
+
+.about-owner__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.about-owner__copy h3 {
+  margin: 0 0 1.5rem;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.about-owner__copy p {
+  margin: 0 0 1.1rem;
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 2.05;
+}
+
+.about-owner__lead {
+  color: var(--ink) !important;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.02em;
+}
+
+.about-owner__copy .owner-block__name {
+  margin-top: 1.75rem;
+  margin-bottom: 0;
 }
 
 /* Access */
@@ -972,8 +1050,13 @@ a {
 @media (max-width: 900px) {
   .contact-band .section__inner,
   .about-grid,
+  .about-owner,
   .access-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-owner__visual {
+    position: static;
   }
 
   .contact-band__actions {
