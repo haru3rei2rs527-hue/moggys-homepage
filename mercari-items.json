@@ -1,0 +1,39 @@
+{
+  "shopName": "MGY SUPPLY",
+  "shopUrl": "https://jp.mercari.com/shops/profile/TuLXKoquBMj5wxb4APmPJU",
+  "items": [
+    {
+      "id": "2JSw9dwJnnikWjVqvQ92yq",
+      "brand": "Santoni × BEAMS F",
+      "title": "ヴァンプローファー",
+      "price": 7580,
+      "size": "6.5",
+      "work": "Vibram施工 / リフト交換",
+      "image": "assets/mercari/santoni-beams.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSw9dwJnnikWjVqvQ92yq",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSVhUvi4koUmJCH9cbxwx",
+      "brand": "MY FERRAGAMO",
+      "title": "エナメルパンプス",
+      "price": 5680,
+      "size": "6 1/2",
+      "work": "ソール交換 / リフト交換",
+      "image": "assets/mercari/my-ferragamo-pumps.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSVhUvi4koUmJCH9cbxwx",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSiZHKaum4UvcZoCLomHb",
+      "brand": "アジア製靴（現マドラス）",
+      "title": "セミブローグ",
+      "price": 5390,
+      "size": "24cm",
+      "work": "保湿ケア / 補色 / オゾン除菌",
+      "image": "assets/mercari/asia-semibrogue.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSiZHKaum4UvcZoCLomHb",
+      "status": "on_sale"
+    }
+  ]
+}
