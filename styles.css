@@ -1,4 +1,4 @@
-/* MOGGYS SHOE STUDIO — sample site */
+/* MOGGYS SHOE STUDIO */
 
 :root {
   --cream: #f2efe6;
@@ -12,6 +12,8 @@
   --line: rgba(42, 38, 34, 0.14);
   --white: #faf9f6;
   --header-h: 72px;
+  --jump-h: 3.6rem;
+  --collection-jump-gap: clamp(2.5rem, 6vh, 4rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -23,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + var(--jump-h) + 0.75rem);
 }
 
 body {
@@ -105,15 +108,15 @@ a {
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(1.25rem, 3vw, 2.25rem);
+  gap: clamp(0.85rem, 2vw, 1.75rem);
 }
 
 .nav a {
   position: relative;
   font-family: "Jost", sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
   transition: color 0.3s var(--ease);
@@ -472,6 +475,56 @@ a {
   color: var(--ink-soft);
   font-size: 1rem;
   line-height: 2;
+}
+
+.page-hero--with-jump {
+  padding-bottom: var(--collection-jump-gap);
+}
+
+.collection-jump-sentinel {
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.collection-jump {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+}
+
+.collection-jump-gap {
+  height: var(--collection-jump-gap);
+  pointer-events: none;
+}
+
+.collection-jump .btn {
+  min-width: 8.5rem;
+}
+
+.collection-jump.is-stuck {
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  background: rgba(242, 239, 230, 0.94);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 100vmax rgba(242, 239, 230, 0.94);
+  clip-path: inset(0 -100vmax);
+}
+
+.collection-jump a[aria-current="location"] {
+  background: var(--sage-deep);
+  color: var(--white);
+  border-color: var(--sage-deep);
+}
+
+#rendo,
+#used {
+  scroll-margin-top: calc(var(--header-h) + var(--jump-h) + 0.75rem);
 }
 
 /* About layout */
@@ -976,6 +1029,18 @@ a {
 
 /* Proposal / menu pages */
 
+.price-note {
+  width: min(1120px, 100%);
+  margin: 0 auto 2rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--sage);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  background: rgba(125, 139, 111, 0.08);
+}
+
 .draft-note {
   width: min(1120px, 100%);
   margin: 0 auto 2rem;
@@ -1475,7 +1540,7 @@ a {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .nav-toggle {
     display: block;
   }
@@ -1495,7 +1560,9 @@ a {
   .nav.is-open {
     display: flex;
   }
+}
 
+@media (max-width: 720px) {
   .gallery {
     grid-template-columns: 1fr;
   }

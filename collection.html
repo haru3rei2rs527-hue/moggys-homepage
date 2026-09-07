@@ -14,6 +14,9 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -39,13 +42,16 @@
 
       <nav class="nav" id="site-nav">
         <a href="index.html">Top</a>
+        <a href="repair.html">Repair</a>
+        <a href="order.html">Order</a>
+        <a href="collection.html" aria-current="page">Collection</a>
         <a href="about.html">About</a>
         <a href="access.html">Access</a>
       </nav>
     </header>
 
     <main>
-      <header class="page-hero">
+      <header class="page-hero page-hero--with-jump">
         <div class="page-hero__inner">
           <p class="section__label">Collection</p>
           <h1 class="page-hero__title">COLLECTION</h1>
@@ -57,7 +63,14 @@
 
       <section class="section" style="padding-top: 0">
         <div class="section__inner">
-          <div class="about-visual reveal" style="margin-bottom: 3rem">
+          <div class="collection-jump-sentinel" aria-hidden="true"></div>
+          <nav class="collection-jump" aria-label="コレクション内メニュー">
+            <a class="btn btn--solid" href="#rendo">RENDO</a>
+            <a class="btn btn--solid" href="#used">USED</a>
+          </nav>
+          <div class="collection-jump-gap" aria-hidden="true"></div>
+
+          <div class="about-visual reveal" id="rendo" style="margin-bottom: 3rem">
             <img
               src="assets/rendo-hero.webp"
               alt="RENDO のレザーシューズ"
@@ -128,12 +141,13 @@
             </div>
           </div>
 
-          <div class="mercari-head reveal" style="margin-top: 4rem">
+          <div class="mercari-head" style="margin-top: 4rem">
             <div>
-              <p class="section__label">Used / Mercari Shops</p>
-              <h2 class="section__title">中古・整備済み在庫</h2>
+              <p class="section__label" id="used">Used</p>
+              <h2 class="section__title">USED SHOES</h2>
               <p class="section__text">
-                工房で状態を確認し、必要な修理・ケアを行った一足です。購入はメルカリShops「MGY SUPPLY」からどうぞ。
+                工房で一点ずつ状態を確認し、必要な修理やケアを施してます。<br />
+                現在販売中の商品はメルカリshopsにてご覧いただけます。
               </p>
             </div>
             <a

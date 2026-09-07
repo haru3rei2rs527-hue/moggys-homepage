@@ -3,10 +3,87 @@
   "shopUrl": "https://jp.mercari.com/shops/profile/TuLXKoquBMj5wxb4APmPJU",
   "items": [
     {
+      "id": "2JSGTU25mBTDXACxGTnGjy",
+      "brand": "MAGNANNI",
+      "title": "オパンカ ホールカット",
+      "price": 48490,
+      "size": "39",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/magnanni-opanka.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSGTU25mBTDXACxGTnGjy",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSGQ3B5DCLL2SerznXCnv",
+      "brand": "Maison Margiela",
+      "title": "スリッポン",
+      "price": 30880,
+      "size": "41",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/margiela-slipon.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSGQ3B5DCLL2SerznXCnv",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSGMHG8XmhHzNYbbGz6CT",
+      "brand": "Jimmy Choo",
+      "title": "チャッカブーツ",
+      "price": 28280,
+      "size": "41",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/jimmychoo-chukka.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSGMHG8XmhHzNYbbGz6CT",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSfiGZ2ZUtrtqLMszKmUv",
+      "brand": "a piece of craftsman",
+      "title": "パンチドキャップトゥ",
+      "price": 16280,
+      "size": "7.5",
+      "work": "リフト交換 / ヴィンテージスチール装着",
+      "image": "assets/mercari/craftsman-punched-captoe.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSfiGZ2ZUtrtqLMszKmUv",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSQ6sp6WuB2SiYuZDes3m",
+      "brand": "SOLOVIERE",
+      "title": "レザーフラットシューズ",
+      "price": 14380,
+      "size": "41",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/soloviere-flat.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSQ6sp6WuB2SiYuZDes3m",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JS9FNFW6AoP4xL5awFbtu",
+      "brand": "Clarks",
+      "title": "デザートブーツ",
+      "price": 12680,
+      "size": "5.5",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/clarks-desert.webp",
+      "url": "https://jp.mercari.com/shops/product/2JS9FNFW6AoP4xL5awFbtu",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JTJu67oWCNF2zYr45v87w",
+      "brand": "Salvatore Ferragamo",
+      "title": "コインローファー",
+      "price": 9590,
+      "size": "6EE",
+      "work": "保湿ケア / 補色 / オゾン除菌",
+      "image": "assets/mercari/ferragamo-coin-loafer.webp",
+      "url": "https://jp.mercari.com/shops/product/2JTJu67oWCNF2zYr45v87w",
+      "status": "on_sale"
+    },
+    {
       "id": "2JSw9dwJnnikWjVqvQ92yq",
       "brand": "Santoni × BEAMS F",
       "title": "ヴァンプローファー",
-      "price": 7580,
+      "price": 7480,
       "size": "6.5",
       "work": "Vibram施工 / リフト交換",
       "image": "assets/mercari/santoni-beams.webp",
@@ -14,25 +91,58 @@
       "status": "on_sale"
     },
     {
-      "id": "2JSVhUvi4koUmJCH9cbxwx",
-      "brand": "MY FERRAGAMO",
-      "title": "エナメルパンプス",
-      "price": 5680,
-      "size": "6 1/2",
-      "work": "ソール交換 / リフト交換",
-      "image": "assets/mercari/my-ferragamo-pumps.webp",
-      "url": "https://jp.mercari.com/shops/product/2JSVhUvi4koUmJCH9cbxwx",
+      "id": "2JS74EKw42mLbeJ3xXbf2r",
+      "brand": "REGAL",
+      "title": "コインローファー 2177",
+      "price": 6580,
+      "size": "24EE",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/regal-2177-loafer.webp",
+      "url": "https://jp.mercari.com/shops/product/2JS74EKw42mLbeJ3xXbf2r",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSMVoSs29n57zjNHt3CdN",
+      "brand": "REGAL",
+      "title": "サイドゴアブーツ 672",
+      "price": 6480,
+      "size": "25.5cm",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/regal-672-boots.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSMVoSs29n57zjNHt3CdN",
       "status": "on_sale"
     },
     {
       "id": "2JSiZHKaum4UvcZoCLomHb",
       "brand": "アジア製靴（現マドラス）",
       "title": "セミブローグ",
-      "price": 5390,
+      "price": 5290,
       "size": "24cm",
       "work": "保湿ケア / 補色 / オゾン除菌",
       "image": "assets/mercari/asia-semibrogue.webp",
       "url": "https://jp.mercari.com/shops/product/2JSiZHKaum4UvcZoCLomHb",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSJuRmCbJEsDuaRYm7uE4",
+      "brand": "LACOSTE",
+      "title": "L.12.12 レザースニーカー",
+      "price": 3580,
+      "size": "USA5.5",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/lacoste-l1212.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSJuRmCbJEsDuaRYm7uE4",
+      "status": "on_sale"
+    },
+    {
+      "id": "2JSE43DDP3FXzBqTTKbG8Z",
+      "brand": "MODELLO madras",
+      "title": "サイドゴアスリッポン",
+      "price": 3190,
+      "size": "24.5cm",
+      "work": "オゾン除菌",
+      "image": "assets/mercari/modello-sidegore.webp",
+      "url": "https://jp.mercari.com/shops/product/2JSE43DDP3FXzBqTTKbG8Z",
       "status": "on_sale"
     }
   ]
