@@ -33,7 +33,7 @@ function resolveStatic(urlPath) {
     pathname.startsWith("/data/") ||
     pathname.startsWith("/lib/") ||
     pathname.startsWith("/api/") ||
-    pathname === "/server.js"
+    pathname === "/preview-server.js"
   ) {
     return null;
   }
