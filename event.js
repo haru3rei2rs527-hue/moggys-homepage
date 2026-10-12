@@ -238,8 +238,8 @@
     current = null;
     success.hidden = true;
     again.hidden = true;
-    setStatus("予約を取り消しました。別の時間を選べます。");
     await load();
+    setStatus("予約を取り消しました。別の時間を選べます。");
   };
 
   document.getElementById("cancel-reservation").addEventListener("click", () => {
