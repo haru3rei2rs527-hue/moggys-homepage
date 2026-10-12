@@ -33,7 +33,11 @@
   };
 
   const writeSaved = (reservation) => {
-    sessionStorage.setItem(storageKey, JSON.stringify(reservation));
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(reservation));
+    } catch {
+      return;
+    }
   };
 
   const clearSaved = () => {
@@ -54,6 +58,15 @@
     form.hidden = !(accepting && selected);
   };
 
+  const scrollToEl = (el) => {
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    const top = el.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo(0, Math.max(0, top));
+    root.style.scrollBehavior = previous;
+  };
+
   const showSuccess = (reservation, scroll) => {
     current = reservation;
     writeSaved(reservation);
@@ -63,7 +76,10 @@
     form.hidden = true;
     success.hidden = false;
     again.hidden = false;
-    if (scroll) success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (scroll) {
+      scrollToEl(success);
+      setTimeout(() => scrollToEl(success), 400);
+    }
   };
 
   const paint = (state) => {
@@ -178,14 +194,16 @@
           phone,
           email: document.getElementById("guest-email").value,
           note: document.getElementById("guest-note").value,
-          company: form.elements.company.value,
+          company: "",
         }),
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
         const message = data.message || "送信できませんでした。";
         await load();
+        setError(message);
         setStatus(message);
+        scrollToEl(form.hidden ? status : error);
         return;
       }
       form.reset();
@@ -194,6 +212,7 @@
       await load();
     } catch {
       setError("送信できませんでした。時間をおいてもう一度お試しください。");
+      scrollToEl(error);
     } finally {
       submit.disabled = false;
       submit.textContent = "この時間で予約する";

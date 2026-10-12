@@ -237,10 +237,9 @@
                 <span>Note（任意）</span>
                 <textarea id="guest-note" name="note" maxlength="400" placeholder="足のサイズや、当日聞いておきたいことがあれば"></textarea>
               </label>
-              <label class="hp" aria-hidden="true">
-                Company
-                <input type="text" name="company" tabindex="-1" autocomplete="off" />
-              </label>
+              <div class="hp" hidden>
+                <input type="text" name="company" tabindex="-1" autocomplete="off" readonly />
+              </div>
             </div>
             <p class="reserve-status" id="reserve-error" role="alert"></p>
             <p class="reserve-privacy">ご記入の内容は、この会の予約連絡にだけ使います。</p>
