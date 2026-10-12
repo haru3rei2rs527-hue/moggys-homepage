@@ -2,7 +2,15 @@
  * メルカリShops（MGY SUPPLY）商品一覧
  * 出品の追加・更新は mercari-items.json を編集してください。
  */
-const MERCARI_FEED = "mercari-items.json";
+const MERCARI_FEED_BASE = document.currentScript
+  ? document.currentScript.src
+  : window.location.href;
+
+function mercariFeedUrl() {
+  const url = new URL("mercari-items.json", MERCARI_FEED_BASE);
+  url.searchParams.set("v", "20260907d");
+  return url.href;
+}
 
 function formatYen(value) {
   return `¥${Number(value).toLocaleString("ja-JP")}`;
@@ -24,7 +32,7 @@ function createCard(item) {
   visual.className = "mercari-card__visual";
 
   const img = document.createElement("img");
-  img.src = item.image;
+  img.src = new URL(item.image, MERCARI_FEED_BASE).href;
   img.alt = [item.brand, item.title].filter(Boolean).join(" ");
   img.loading = "lazy";
   visual.appendChild(img);
@@ -79,7 +87,11 @@ async function loadMercariFeed() {
   grid.dataset.state = "loading";
 
   try {
-    const res = await fetch(MERCARI_FEED);
+    if (window.location.protocol === "file:") {
+      throw new Error("file protocol cannot load mercari-items.json");
+    }
+
+    const res = await fetch(mercariFeedUrl(), { cache: "no-store" });
     if (!res.ok) throw new Error(`mercari feed HTTP ${res.status}`);
 
     const data = await res.json();
@@ -100,7 +112,13 @@ async function loadMercariFeed() {
   } catch (error) {
     console.warn("[mercari] feed failed.", error);
     grid.dataset.state = "empty";
-    if (empty) empty.hidden = false;
+    if (empty) {
+      empty.hidden = false;
+      if (window.location.protocol === "file:") {
+        empty.textContent =
+          "USEDの商品は、HTMLを直接開くと表示できません。ローカル確認は http://127.0.0.1:8770/collection.html を開いてください。";
+      }
+    }
   }
 }
 
