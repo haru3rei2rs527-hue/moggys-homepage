@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /event-admin.html
+Disallow: /api/
 
 Sitemap: https://moggys-shoe-studio.com/sitemap.xml

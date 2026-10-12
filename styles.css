@@ -1540,7 +1540,7 @@ a {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1120px) {
   .nav-toggle {
     display: block;
   }
@@ -1585,5 +1585,359 @@ a {
 
   .hero__title {
     letter-spacing: 0.1em;
+  }
+}
+
+/* Event */
+
+.event-hero {
+  min-height: 78vh;
+  min-height: 78dvh;
+}
+
+.event-headline {
+  margin: 0 0 1.25rem;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.45rem);
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+}
+
+.event-banner {
+  padding-top: clamp(3rem, 7vh, 4.5rem);
+}
+
+.event-banner__card {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  color: inherit;
+}
+
+.event-banner__media {
+  overflow: hidden;
+  background: var(--cream-deep);
+  aspect-ratio: 4 / 3;
+}
+
+.event-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease);
+}
+
+.event-banner__card:hover img {
+  transform: scale(1.03);
+}
+
+.event-banner__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.event-banner__copy .section__label,
+.event-banner__copy .section__text {
+  display: block;
+}
+
+.event-banner__copy .section__text {
+  margin-bottom: 1.5rem;
+}
+
+.event-callout {
+  margin: clamp(2.5rem, 6vh, 3.75rem) 0;
+  padding: clamp(1.75rem, 4vh, 2.5rem) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.event-callout p:not(.section__label) {
+  max-width: 38rem;
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  line-height: 1.95;
+}
+
+.event-callout .event-headline {
+  max-width: 18em;
+}
+
+.event-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: clamp(3rem, 7vh, 4.5rem);
+  padding-top: clamp(2rem, 5vh, 3rem);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.event-facts h3,
+.slot-day__title,
+.reserve-code {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.event-facts h3,
+.slot-day__title {
+  font-size: 0.72rem;
+  color: var(--sage-deep);
+}
+
+.event-facts p,
+.slot-day__date {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.reserve {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+  border-top: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(125, 139, 111, 0.08), transparent 28%),
+    transparent;
+}
+
+.reserve-status,
+.reserve-privacy,
+.reserve-selected {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.reserve-status:empty {
+  display: none;
+}
+
+.slot-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: 2rem;
+}
+
+.slot-day__title span {
+  letter-spacing: 0.18em;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.15rem;
+  min-height: 64px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(250, 249, 246, 0.72);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.slot__time {
+  font-family: "Jost", sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.slot__state {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+.slot:hover:not(:disabled) {
+  border-color: rgba(95, 107, 84, 0.55);
+}
+
+.slot.is-selected {
+  border-color: var(--sage-deep);
+  background: rgba(125, 139, 111, 0.16);
+}
+
+.slot.is-taken,
+.slot.is-closed,
+.slot.is-past,
+.slot:disabled {
+  cursor: default;
+  background: transparent;
+  color: var(--ink-soft);
+}
+
+.slot.is-closed {
+  border-style: dashed;
+}
+
+.slot:focus-visible,
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 2px;
+}
+
+.reserve-form,
+.reserve-success {
+  max-width: 40rem;
+  margin-top: 2rem;
+}
+
+.reserve-fields {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span {
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(250, 249, 246, 0.8);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.85rem 0.9rem;
+}
+
+.field textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+
+.hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.reserve-privacy {
+  font-size: 0.82rem;
+}
+
+.reserve-form .btn,
+.reserve-actions .btn,
+.admin-toolbar .btn {
+  margin-top: 0.4rem;
+}
+
+.reserve-actions,
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.reserve-code {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.reserve-code strong {
+  font-weight: 500;
+  margin-left: 0.35rem;
+}
+
+.reserve-again {
+  margin-top: 1.5rem;
+}
+
+.admin-back {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.admin-board {
+  max-width: 1120px;
+}
+
+.admin-meta {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.admin-meta div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+}
+
+.admin-meta dt {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.admin-meta dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.admin-detail {
+  max-width: 40rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.reserve-form[hidden],
+.reserve-success[hidden],
+.reserve-again[hidden],
+#admin-app[hidden],
+#admin-login[hidden],
+.admin-detail[hidden],
+#admin-warning[hidden] {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .event-banner__card,
+  .event-facts,
+  .slot-board {
+    grid-template-columns: 1fr;
   }
 }

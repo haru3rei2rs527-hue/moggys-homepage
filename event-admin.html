@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>予約管理 | MOGGYS SHOE STUDIO</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="MOGGYS SHOE STUDIO ホーム">
+        <img class="brand__mark" src="assets/logo.webp" alt="" />
+        <span class="brand__text">
+          MOGGYS
+          <small>SHOE STUDIO</small>
+        </span>
+      </a>
+      <a class="text-link admin-back" href="event.html">特設ページ</a>
+    </header>
+
+    <main>
+      <header class="page-hero">
+        <div class="page-hero__inner">
+          <p class="section__label">Admin</p>
+          <h1 class="page-hero__title">予約</h1>
+          <p class="page-hero__lead">
+            11月21日・22日の枠です。電話で受けた予約の記入と、休憩などで枠を閉じる操作ができます。このページは公開メニューに出していません。
+          </p>
+        </div>
+      </header>
+
+      <section class="section" style="padding-top: 0">
+        <div class="section__inner admin-board">
+          <form class="reserve-form" id="admin-login">
+            <label class="field">
+              <span>Password</span>
+              <input id="admin-password" type="password" autocomplete="current-password" required />
+            </label>
+            <p class="reserve-status" id="admin-login-error" role="alert"></p>
+            <button class="btn btn--solid" type="submit">入る</button>
+          </form>
+
+          <div id="admin-app" hidden>
+            <p class="reserve-status" id="admin-warning" hidden>
+              予約の保存先が未設定です。この環境では記録が残りません。
+            </p>
+            <div class="admin-toolbar">
+              <p class="reserve-status" id="admin-status" role="status"></p>
+              <button class="btn btn--line" type="button" id="admin-reload">更新</button>
+              <button class="btn btn--line" type="button" id="admin-logout">出る</button>
+            </div>
+            <div class="slot-board" id="admin-board"></div>
+            <div class="admin-detail" id="admin-detail" hidden></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="event-admin.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
