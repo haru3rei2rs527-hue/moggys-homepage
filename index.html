@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261012d" />
   </head>
   <body>
     <header class="site-header">
@@ -79,20 +79,25 @@
 
       <section class="section event-banner" aria-labelledby="event-banner-title">
         <div class="section__inner">
-          <a class="event-banner__card event-banner__card--poster reveal" href="event.html">
-            <span class="event-banner__media event-banner__media--poster">
+          <a class="event-hero reveal" href="event.html">
+            <picture class="event-hero__photo">
               <img
-                src="assets/event/trunk-show.webp"
-                alt="RENDO パターンオーダートランクショー。2026年11月21日・22日、MOGGYS SHOE STUDIO、11時から19時。1枠1時間の予約制。予約なしでもご覧いただけます。"
+                src="assets/event/banner-order.webp"
+                alt=""
               />
-            </span>
-            <span class="event-banner__copy">
-              <span class="section__label">Trunk Show</span>
-              <h2 class="section__title" id="event-banner-title">Pattern Order</h2>
-              <span class="section__text">
-                11月21日（土）・22日（日）、工房で RENDO のパターンオーダー会を開きます。11:00–19:00。1枠1時間のご予約制です。ご予約なしでもご覧いただけます。
+            </picture>
+            <span class="event-hero__shade" aria-hidden="true"></span>
+            <span class="event-hero__copy">
+              <h2 class="event-hero__title" id="event-banner-title">
+                <span>日本人の足に寄り添った、</span>
+                <span>上質な革靴を。</span>
+              </h2>
+              <p class="event-hero__lead">工房で、お一人ずつ。採寸とご相談の会です。</p>
+              <span class="event-hero__band">
+                <span class="event-hero__band-name">パターンオーダー受注会</span>
+                <span class="event-hero__band-date">11月21日・22日</span>
               </span>
-              <span class="btn btn--solid">予約する</span>
+              <span class="event-hero__cta">ご予約・詳細はこちら <span aria-hidden="true">&gt;</span></span>
             </span>
           </a>
         </div>
@@ -235,6 +240,6 @@
     </footer>
 
     <script src="instagram.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js?v=20260907e"></script>
   </body>
 </html>
