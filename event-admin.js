@@ -199,7 +199,7 @@
 
   const load = async () => {
     status.textContent = "読み込み中…";
-    const response = await fetch("/api/admin", { headers: authHeaders(), cache: "no-store" });
+    const response = await fetch("/api/admin.php", { headers: authHeaders(), cache: "no-store" });
     const data = await response.json().catch(() => ({}));
     if (response.status === 403) {
       password = "";
@@ -219,7 +219,7 @@
 
   const mutate = async (body) => {
     status.textContent = "保存中…";
-    const response = await fetch("/api/admin", {
+    const response = await fetch("/api/admin.php", {
       method: "POST",
       headers: authHeaders(),
       body: JSON.stringify(body),
@@ -237,7 +237,7 @@
     event.preventDefault();
     loginError.textContent = "";
     password = document.getElementById("admin-password").value;
-    const response = await fetch("/api/admin", {
+    const response = await fetch("/api/admin.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "login", password }),

@@ -268,7 +268,7 @@
   const load = async () => {
     const token = ++loadToken;
     try {
-      const response = await fetch("/api/reservations", { cache: "no-store" });
+      const response = await fetch("/api/reservations.php", { cache: "no-store" });
       if (token !== loadToken) return;
       if (!response.ok) throw new Error("status");
       const data = await response.json();
@@ -325,11 +325,12 @@
     }
     const name = document.getElementById("guest-name").value.trim();
     const phone = document.getElementById("guest-phone").value.trim();
+    const company = form.querySelector("[name=company]");
     const submit = document.getElementById("reserve-submit");
     submit.disabled = true;
     submit.textContent = "送信中…";
     try {
-      const response = await fetch("/api/reservations", {
+      const response = await fetch("/api/reservations.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -339,7 +340,7 @@
           phone,
           email: document.getElementById("guest-email").value,
           note: document.getElementById("guest-note").value,
-          company: "",
+          company: company ? company.value : "",
         }),
       });
       const data = await response.json().catch(() => ({}));
@@ -365,10 +366,11 @@
   });
 
   const cancel = async (reservation) => {
-    const response = await fetch("/api/reservations", {
-      method: "DELETE",
+    const response = await fetch("/api/reservations.php", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        action: "cancel",
         date: reservation.date,
         time: reservation.time,
         cancelToken: reservation.cancelToken,

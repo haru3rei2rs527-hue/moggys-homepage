@@ -12,16 +12,29 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 
   if (toggle && nav) {
+    const backdrop = document.createElement("button");
+    backdrop.type = "button";
+    backdrop.className = "nav-backdrop";
+    backdrop.hidden = true;
+    backdrop.setAttribute("aria-label", "メニューを閉じる");
+    (header || document.body).append(backdrop);
+
+    const closeNav = () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      backdrop.hidden = true;
+    };
+
     toggle.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
+      backdrop.hidden = !open;
     });
 
+    backdrop.addEventListener("click", closeNav);
+
     nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", closeNav);
     });
   }
 
