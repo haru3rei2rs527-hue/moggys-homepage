@@ -1853,16 +1853,34 @@ a {
   outline-offset: 2px;
 }
 
+.field.is-invalid input:focus-visible,
+.field.is-invalid textarea:focus-visible {
+  outline-color: #8d3d32;
+}
+
 .reserve-form,
 .reserve-success {
   max-width: 40rem;
   margin-top: 2rem;
 }
 
+.reserve-form {
+  padding: 1.35rem 1.25rem 1.5rem;
+  background: rgba(250, 249, 246, 0.88);
+  border: 1px solid rgba(42, 38, 34, 0.16);
+}
+
+.reserve-form__lead {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
 .reserve-fields {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.25rem;
+  gap: 1.35rem;
+  margin-top: 1.35rem;
 }
 
 .field {
@@ -1870,6 +1888,7 @@ a {
   gap: 0.4rem;
 }
 
+.field__head,
 .field span {
   font-family: "Jost", sans-serif;
   font-size: 0.68rem;
@@ -1878,16 +1897,80 @@ a {
   color: var(--sage-deep);
 }
 
+.field__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+}
+
+.field__label {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.field__badge {
+  flex: none;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid var(--sage-deep);
+  color: var(--sage-deep);
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.field__badge--opt {
+  border-color: rgba(42, 38, 34, 0.28);
+  color: var(--ink-soft);
+}
+
+.field__hint,
+.field__ok,
+.field__error {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.field__ok {
+  color: var(--sage-deep);
+}
+
+.field__hint {
+  color: var(--ink-soft);
+}
+
+.field__error {
+  color: #8d3d32;
+}
+
 .field input,
 .field textarea {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1.5px solid rgba(42, 38, 34, 0.38);
   border-radius: 2px;
-  background: rgba(250, 249, 246, 0.8);
+  background: #faf9f6;
   color: var(--ink);
   font: inherit;
-  font-size: 1rem;
-  padding: 0.85rem 0.9rem;
+  font-size: 1.05rem;
+  padding: 0.95rem 1rem;
+  min-height: 3.25rem;
+}
+
+.field.is-invalid input,
+.field.is-invalid textarea {
+  border-color: #8d3d32;
+  background: #fbf7f5;
+}
+
+.field.is-valid input,
+.field.is-valid textarea {
+  border-color: var(--sage-deep);
 }
 
 .field textarea {
