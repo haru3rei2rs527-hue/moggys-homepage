@@ -1,3 +1,11 @@
 {
-  "cleanUrls": false
+  "cleanUrls": false,
+  "functions": {
+    "api/reservations.js": {
+      "regions": ["hnd1"]
+    },
+    "api/admin.js": {
+      "regions": ["hnd1"]
+    }
+  }
 }
