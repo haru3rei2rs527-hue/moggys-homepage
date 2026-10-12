@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=20261013a" />
+    <link rel="stylesheet" href="styles.css?v=20261013b" />
   </head>
   <body>
     <header class="site-header">
@@ -82,18 +82,9 @@
             <a class="btn btn--line" href="#outline">開催概要</a>
           </div>
           <div class="rendo-gallery">
-            <div class="rendo-gallery__bar">
-              <p class="section__label">Gallery</p>
-              <p class="rendo-gallery__count" aria-live="polite">1 / 12</p>
-              <div class="rendo-gallery__nav">
-                <button type="button" class="rendo-gallery__prev">前へ</button>
-                <button type="button" class="rendo-gallery__next">次へ</button>
-              </div>
-            </div>
-            <div class="rendo-gallery__scroller" tabindex="0" aria-label="RENDOの写真。横に送ると次の写真になります。">
-              <figure class="is-poster">
-                <img src="assets/event/rendo/rend1.webp" alt="RENDO パターンオーダートランクショー。2026年11月21日・22日、MOGGYS SHOE STUDIO、11時から19時。1枠1時間の予約制。予約なしでもご覧いただけます。" />
-              </figure>
+            <div class="rendo-gallery__frame">
+              <button type="button" class="rendo-gallery__arrow rendo-gallery__prev" aria-label="前の写真"><span></span></button>
+              <div class="rendo-gallery__scroller" tabindex="0" aria-label="RENDOの写真">
               <figure>
                 <img src="assets/event/rendo/img_3586.webp" alt="床に並ぶ黒の革靴と、サイズの入ったRENDOの箱。靴を合わせている手元" />
               </figure>
@@ -127,7 +118,10 @@
               <figure>
                 <img src="assets/event/rendo/dsc_0159.webp" alt="黒のストレートチップと木型、ブラシとクリームを作業台に並べたところ" />
               </figure>
+              </div>
+              <button type="button" class="rendo-gallery__arrow rendo-gallery__next" aria-label="次の写真"><span></span></button>
             </div>
+            <div class="rendo-gallery__dots"></div>
           </div>
         </div>
       </section>
@@ -363,7 +357,7 @@
       </div>
     </footer>
 
-    <script src="event.js?v=20261013a"></script>
+    <script src="event.js?v=20261013b"></script>
     <script src="main.js?v=20261012f"></script>
   </body>
 </html>

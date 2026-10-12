@@ -1,9 +1,9 @@
 (() => {
   const scroller = document.querySelector(".rendo-gallery__scroller");
-  const count = document.querySelector(".rendo-gallery__count");
+  const dots = document.querySelector(".rendo-gallery__dots");
   const prev = document.querySelector(".rendo-gallery__prev");
   const next = document.querySelector(".rendo-gallery__next");
-  if (!scroller || !count) return;
+  if (!scroller || !dots) return;
   const slides = [...scroller.querySelectorAll("figure")];
 
   const nearest = () => {
@@ -20,8 +20,26 @@
     return index;
   };
 
+  const buttons = slides.map((_, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.setAttribute("aria-label", `${index + 1}枚目`);
+    button.addEventListener("click", () => {
+      slides[index].scrollIntoView({ inline: "start", block: "nearest" });
+    });
+    dots.append(button);
+    return button;
+  });
+
   const paint = () => {
-    count.textContent = `${nearest() + 1} / ${slides.length}`;
+    const index = nearest();
+    buttons.forEach((button, item) => {
+      const current = item === index;
+      button.classList.toggle("is-current", current);
+      button.setAttribute("aria-current", current ? "true" : "false");
+    });
+    if (prev) prev.disabled = index === 0;
+    if (next) next.disabled = index === slides.length - 1;
   };
 
   const move = (direction) => {
