@@ -13,6 +13,7 @@
   let selected = null;
   let current = null;
   let accepting = false;
+  let loadToken = 0;
 
   const labels = {
     open: "空席",
@@ -111,12 +112,16 @@
   };
 
   const load = async () => {
+    const token = ++loadToken;
     try {
       const response = await fetch("/api/reservations", { cache: "no-store" });
+      if (token !== loadToken) return;
       if (!response.ok) throw new Error("status");
       const data = await response.json();
+      if (token !== loadToken) return;
       paint(data);
     } catch {
+      if (token !== loadToken) return;
       accepting = false;
       paint(null);
       setStatus("空き状況を確認できません。お電話（052-784-5492）でご予約ください。");
