@@ -1,4 +1,44 @@
 (() => {
+  const scroller = document.querySelector(".rendo-gallery__scroller");
+  const count = document.querySelector(".rendo-gallery__count");
+  const prev = document.querySelector(".rendo-gallery__prev");
+  const next = document.querySelector(".rendo-gallery__next");
+  if (!scroller || !count) return;
+  const slides = [...scroller.querySelectorAll("figure")];
+
+  const nearest = () => {
+    const origin = scroller.getBoundingClientRect().left;
+    let index = 0;
+    let best = Infinity;
+    slides.forEach((slide, item) => {
+      const distance = Math.abs(slide.getBoundingClientRect().left - origin);
+      if (distance < best) {
+        best = distance;
+        index = item;
+      }
+    });
+    return index;
+  };
+
+  const paint = () => {
+    count.textContent = `${nearest() + 1} / ${slides.length}`;
+  };
+
+  const move = (direction) => {
+    const slide = slides[0];
+    if (!slide) return;
+    const styles = getComputedStyle(scroller);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+    scroller.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap) });
+  };
+
+  scroller.addEventListener("scroll", paint, { passive: true });
+  if (prev) prev.addEventListener("click", () => move(-1));
+  if (next) next.addEventListener("click", () => move(1));
+  paint();
+})();
+
+(() => {
   const board = document.querySelector(".slot-board");
   const form = document.getElementById("reserve-form");
   const success = document.getElementById("reserve-success");

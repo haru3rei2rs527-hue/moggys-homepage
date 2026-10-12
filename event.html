@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
-    <link rel="stylesheet" href="styles.css?v=20261012f" />
+    <link rel="stylesheet" href="styles.css?v=20261013a" />
   </head>
   <body>
     <header class="site-header">
@@ -81,21 +81,53 @@
             <a class="btn btn--solid" href="#reserve">予約する</a>
             <a class="btn btn--line" href="#outline">開催概要</a>
           </div>
-          <div class="event-poster-grid">
-            <figure>
-              <img
-                class="is-poster"
-                src="assets/REND/rend1.jpg"
-                alt="RENDO パターンオーダートランクショー。2026年11月21日・22日、MOGGYS SHOE STUDIO、11時から19時。1枠1時間の予約制。予約なしでもご覧いただけます。"
-              />
-            </figure>
-            <figure>
-              <img
-                class="is-shoes"
-                src="assets/event/banner-shoes.webp"
-                alt="木型を入れた黒のストレートチップ。窓辺のスツールの上"
-              />
-            </figure>
+          <div class="rendo-gallery">
+            <div class="rendo-gallery__bar">
+              <p class="section__label">Gallery</p>
+              <p class="rendo-gallery__count" aria-live="polite">1 / 12</p>
+              <div class="rendo-gallery__nav">
+                <button type="button" class="rendo-gallery__prev">前へ</button>
+                <button type="button" class="rendo-gallery__next">次へ</button>
+              </div>
+            </div>
+            <div class="rendo-gallery__scroller" tabindex="0" aria-label="RENDOの写真。横に送ると次の写真になります。">
+              <figure class="is-poster">
+                <img src="assets/event/rendo/rend1.webp" alt="RENDO パターンオーダートランクショー。2026年11月21日・22日、MOGGYS SHOE STUDIO、11時から19時。1枠1時間の予約制。予約なしでもご覧いただけます。" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/img_3586.webp" alt="床に並ぶ黒の革靴と、サイズの入ったRENDOの箱。靴を合わせている手元" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/img_3587.webp" alt="履いている黒のストレートチップと、靴紐を整える手元" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/img_3599.webp" alt="丸いテーブルの上の茶の革靴と、靴底を見せている様子" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/img_3600.webp" alt="メダリオンの茶の短靴と、手に持った黒の革靴" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/dsc_0357.webp" alt="スツールの上に置いた、木型入りの茶のストレートチップ" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/dsc_0232.webp" alt="棚の上の茶のブローグと、奥の黒のモンクストラップ" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/dsc_0574.webp" alt="椅子に置いた、シボ革と光沢のある茶のストレートチップ" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/dsc_0571.webp" alt="作業台の上で、正面と後ろから見た黒のストレートチップ" />
+              </figure>
+              <figure class="is-right">
+                <img src="assets/event/rendo/dsc_0427.webp" alt="窓辺の台に置いた、木型入りの黒の革靴" />
+              </figure>
+              <figure class="is-right">
+                <img src="assets/event/rendo/dsc_0182.webp" alt="窓から差す光の中に置いた、木型入りの黒の革靴" />
+              </figure>
+              <figure>
+                <img src="assets/event/rendo/dsc_0159.webp" alt="黒のストレートチップと木型、ブラシとクリームを作業台に並べたところ" />
+              </figure>
+            </div>
           </div>
         </div>
       </section>
@@ -331,7 +363,7 @@
       </div>
     </footer>
 
-    <script src="event.js?v=20261012g"></script>
+    <script src="event.js?v=20261013a"></script>
     <script src="main.js?v=20261012f"></script>
   </body>
 </html>
