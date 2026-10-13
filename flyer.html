@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>チラシ | MOGGYS × RENDO</title>
+    <meta
+      name="description"
+      content="2026年11月21日・22日、MOGGYS SHOE STUDIO と RENDO の年に一度のパターンオーダー会。A4両面のチラシ。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/favicon-192.png" />
+    <link rel="stylesheet" href="styles.css?v=20261013a" />
+  </head>
+  <body class="is-flyer">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="MOGGYS SHOE STUDIO ホーム">
+        <img class="brand__mark" src="assets/logo.webp" alt="" />
+        <span class="brand__text">
+          MOGGYS
+          <small>SHOE STUDIO</small>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="メニュー"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <a href="index.html">Top</a>
+        <a href="event.html">Event</a>
+        <a href="repair.html">Repair</a>
+        <a href="order.html">Order</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="access.html">Access</a>
+      </nav>
+    </header>
+
+    <main class="flyer-main">
+      <div class="flyer-toolbar">
+        <p>
+          A4・両面です。印刷は用紙 A4、両面は「短辺とじ」、余白なし。ヘッダーとフッターはオフにしてください。1枚目が表面、2枚目が裏面です。
+        </p>
+        <button class="btn btn--solid" type="button" id="print-flyer">印刷する</button>
+      </div>
+
+      <p class="flyer-caption">表面 <span>Front</span></p>
+      <div class="flyer-frame">
+        <article class="flyer-sheet flyer-sheet--front" aria-label="チラシ表面">
+          <figure class="front-hero">
+            <img
+              class="flyer-photo"
+              src="assets/flyer/oxford.jpg"
+              alt="木型を入れた、黒のストレートチップ"
+            />
+          </figure>
+
+          <div class="front-copy">
+            <p class="flyer-kicker">MOGGYS × RENDO</p>
+            <p class="front-annual">年に一度のコラボレーション</p>
+            <h1>最高の一足を、<br />手入れしながら履き続ける。</h1>
+            <p class="front-sub">パターンオーダー会。見学は、予約なしでも。</p>
+          </div>
+
+          <div class="front-facts" aria-label="開催概要">
+            <p>
+              <span>Date</span>
+              <strong>11.21 土 – 11.22 日</strong>
+              <em>2026</em>
+            </p>
+            <p>
+              <span>Hours</span>
+              <strong>11:00–19:00</strong>
+              <em>最終枠 18:00</em>
+            </p>
+            <p>
+              <span>Place</span>
+              <strong>千種区高見 1-8-5</strong>
+              <em>名古屋</em>
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <p class="flyer-caption">裏面 <span>Back</span></p>
+      <div class="flyer-frame">
+        <article class="flyer-sheet flyer-sheet--back" aria-label="チラシ裏面">
+          <header class="back-head">
+            <p class="flyer-kicker">MOGGYS × RENDO</p>
+            <h2>直す工房と、つくるブランド。</h2>
+          </header>
+
+          <figure class="back-scene">
+            <img
+              class="flyer-photo is-fitting"
+              src="assets/flyer/fitting.jpg"
+              alt="工房で革靴を履き比べ、RENDO の箱が並ぶ"
+            />
+          </figure>
+
+          <div class="back-cols">
+            <article>
+              <figure>
+                <img
+                  class="flyer-photo is-consult"
+                  src="assets/flyer/consult.jpg"
+                  alt="革靴を手に取り、状態を確かめる"
+                />
+              </figure>
+              <p class="back-name">MOGGYS</p>
+              <h3>既製靴を、ビスポークに。</h3>
+              <ul>
+                <li>履き込みと直しを重ね、その人の一足へ</li>
+                <li>修理、磨き、ケア。店頭と全国からの郵送</li>
+                <li>革靴、スニーカー、サンダル</li>
+              </ul>
+            </article>
+            <article>
+              <figure>
+                <img
+                  class="flyer-photo is-brogue"
+                  src="assets/flyer/brogue.jpg"
+                  alt="木型を入れた RENDO のダークブラウンのフルブローグ"
+                />
+              </figure>
+              <p class="back-name">RENDO</p>
+              <h3>日本人の足から、削る木型。</h3>
+              <ul>
+                <li>浅草で、採寸から起こすオリジナル木型</li>
+                <li>流行に左右されない、静かなクラシック</li>
+                <li>愛知で扱うのは、MOGGYS だけ</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="back-gift">来店者プレゼントあり</p>
+
+          <footer class="back-info">
+            <div>
+              <p class="back-info__label">Visit</p>
+              <p>2026年11月21日（土）<br />2026年11月22日（日）</p>
+              <p>11:00–19:00<br />採寸・ご相談は1枠1時間<br />ご覧になるだけなら予約不要</p>
+            </div>
+            <div>
+              <p class="back-info__label">Place</p>
+              <p>
+                MOGGYS SHOE STUDIO<br />
+                名古屋市千種区高見1-8-5<br />
+                ケンインターナショナルビル 1F
+              </p>
+              <p>TEL 052-784-5492<br />駐車場はありません</p>
+              <p class="back-url">www.moggys-shoe-studio.com/event.html</p>
+            </div>
+            <div class="back-qr">
+              <a href="https://www.moggys-shoe-studio.com/event.html">
+                <img src="assets/flyer/event-qr.svg" alt="予約ページのQRコード" />
+              </a>
+              <p>予約・詳細</p>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">MOGGYS SHOE STUDIO</div>
+        <div class="site-footer__meta">
+          <a
+            class="text-link instagram-link"
+            href="https://www.instagram.com/moggys_shoe_studio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <span aria-hidden="true">　/　</span>
+          名古屋市千種区高見1-8-5　© 2026 MOGGYS SHOE STUDIO
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js?v=20261012f"></script>
+    <script>
+      (() => {
+        const frames = () => document.querySelectorAll(".flyer-frame");
+
+        const fit = () => {
+          frames().forEach((frame) => {
+            const sheet = frame.querySelector(".flyer-sheet");
+            if (!sheet) return;
+            const scale = frame.clientWidth / sheet.offsetWidth;
+            sheet.style.transform = scale > 0 && scale < 0.995 ? `scale(${scale})` : "none";
+          });
+        };
+
+        document.getElementById("print-flyer")?.addEventListener("click", () => {
+          frames().forEach((frame) => {
+            const sheet = frame.querySelector(".flyer-sheet");
+            if (sheet) sheet.style.transform = "none";
+          });
+          window.print();
+        });
+
+        window.addEventListener("resize", fit);
+        window.addEventListener("beforeprint", () => {
+          frames().forEach((frame) => {
+            const sheet = frame.querySelector(".flyer-sheet");
+            if (sheet) sheet.style.transform = "none";
+          });
+        });
+        window.addEventListener("afterprint", fit);
+        fit();
+      })();
+    </script>
+  </body>
+</html>
