@@ -1,7 +1,4 @@
-api/admin.php
-api/reservations.php
-lib/reservations.php
-lib/http.php
-lib/mail.php
-reservation-mail.php
+**/*.php
+preview-server.js
+lib/reservations.test.js
 **/.htaccess
