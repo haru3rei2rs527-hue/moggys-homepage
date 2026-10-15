@@ -36,6 +36,12 @@
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeNav);
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !nav.classList.contains("is-open")) return;
+      closeNav();
+      toggle.focus();
+    });
   }
 
   const jump = document.querySelector(".collection-jump");
@@ -52,7 +58,11 @@
       const reveal = el.closest(".reveal");
       if (reveal) reveal.classList.add("is-visible");
       const top = el.getBoundingClientRect().top + window.scrollY - jumpOffset();
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
     };
 
     jump.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -95,7 +105,8 @@
   }
 
   const reveals = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window) || reveals.length === 0) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window) || reveals.length === 0) {
     reveals.forEach((el) => el.classList.add("is-visible"));
     return;
   }

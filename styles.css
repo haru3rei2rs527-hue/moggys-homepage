@@ -34,12 +34,24 @@ body {
   color: var(--ink);
   font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.7;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(125, 139, 111, 0.12), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(184, 149, 106, 0.1), transparent 50%),
-    linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
-  background-attachment: fixed;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Jost", "Shippori Mincho", serif;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.section__title,
+.event-headline,
+.page-hero__lead,
+.section__text {
+  text-wrap: balance;
 }
 
 img {
@@ -232,22 +244,35 @@ a {
 }
 
 .hero__lead {
-  margin: 1.5rem 0 0;
-  max-width: 26rem;
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: rgba(250, 249, 246, 0.88);
+  margin: 1.15rem 0 0;
+  max-width: 22rem;
+  font-size: 0.84rem;
+  line-height: 2.1;
+  letter-spacing: 0.14em;
+  color: rgba(250, 249, 246, 0.82);
 }
 
 .hero__title span.hero__title-ja {
-  margin-top: 1rem;
+  margin-top: 1.65rem;
   font-family: "Shippori Mincho", serif;
-  font-size: clamp(0.95rem, 2.4vw, 1.35rem);
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  line-height: 1.6;
+  letter-spacing: 0.34em;
+  line-height: 1.8;
   text-transform: none;
-  opacity: 0.94;
+  opacity: 0.78;
+}
+
+.hero .btn--solid {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(250, 249, 246, 0.62);
+}
+
+.hero .btn--solid:hover {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--white);
 }
 
 .hero__actions {
@@ -276,13 +301,14 @@ a {
 }
 
 .btn--solid {
-  background: var(--sage-deep);
-  color: var(--white);
-  border-color: var(--sage-deep);
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
 }
 
 .btn--solid:hover {
-  background: var(--ink);
+  background: transparent;
+  color: var(--ink);
   border-color: var(--ink);
 }
 
@@ -322,7 +348,7 @@ a {
 /* ----- Sections ----- */
 
 .section {
-  padding: clamp(4.5rem, 10vh, 7.5rem) clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(5.5rem, 12vh, 8.5rem) clamp(1.5rem, 5vw, 4rem);
 }
 
 .section__inner {
@@ -342,19 +368,20 @@ a {
 
 .section__title {
   margin: 0;
-  font-family: "Jost", sans-serif;
+  font-family: "Jost", "Shippori Mincho", serif;
   font-weight: 500;
-  font-size: clamp(1.8rem, 4vw, 2.75rem);
-  letter-spacing: 0.08em;
-  line-height: 1.2;
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  letter-spacing: 0.14em;
+  line-height: 1.5;
 }
 
 .section__text {
-  margin: 1.25rem 0 0;
-  max-width: 36rem;
+  margin: 1.5rem 0 0;
+  max-width: 32rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2;
+  font-size: 0.9rem;
+  line-height: 2.2;
+  letter-spacing: 0.06em;
 }
 
 /* Gallery */
@@ -362,7 +389,7 @@ a {
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: clamp(0.85rem, 1.6vw, 1.25rem);
 }
 
 .gallery__item {
@@ -414,10 +441,12 @@ a {
 
 .gallery__caption-ja {
   display: block;
-  margin-top: 0.35rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: rgba(250, 249, 246, 0.82);
+  margin-top: 0.5rem;
+  font-family: "Shippori Mincho", serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: rgba(250, 249, 246, 0.78);
 }
 
 .gallery__item:hover img {
@@ -437,9 +466,7 @@ a {
 .contact-band {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background:
-    linear-gradient(135deg, rgba(125, 139, 111, 0.1), transparent 45%),
-    linear-gradient(180deg, rgba(230, 224, 210, 0.65), rgba(242, 239, 230, 0.3));
+  background: transparent;
 }
 
 .contact-band .section__inner {
@@ -457,56 +484,72 @@ a {
 }
 
 .contact-band__address {
-  margin: 1.35rem 0 0;
+  margin: 1.6rem 0 0;
   font-style: normal;
   color: var(--ink-soft);
-  font-size: 0.92rem;
-  line-height: 1.95;
+  font-size: 0.82rem;
+  line-height: 2.1;
+  letter-spacing: 0.08em;
 }
 
-.local-repair .section__text {
-  max-width: 44rem;
+.atelier-index .section__title {
+  letter-spacing: 0.1em;
 }
 
-.local-repair__list {
+.atelier-index .section__text {
+  max-width: 26rem;
+}
+
+.atelier-index__list {
   list-style: none;
-  margin: 2.75rem 0 0;
-  padding: 1.75rem 0 0;
+  margin: clamp(3rem, 7vh, 4.25rem) 0 0;
+  padding: clamp(2rem, 4vh, 2.75rem) 0 0;
   border-top: 1px solid var(--line);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.75rem, 3vw, 3rem);
 }
 
-.local-repair__list h3 {
+.atelier-index__no {
+  display: block;
+  margin-bottom: 1.1rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  color: var(--sage-deep);
+}
+
+.atelier-index__list h3 {
   margin: 0;
-  font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
 }
 
-.local-repair__list p {
-  margin: 0.75rem 0 0;
+.atelier-index__list p {
+  margin: 0.9rem 0 0;
   color: var(--ink-soft);
-  font-size: 0.92rem;
-  line-height: 1.95;
+  font-size: 0.8rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  line-break: strict;
 }
 
-.local-repair__links {
+.atelier-index__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.15rem 1.75rem;
-  margin: 2.25rem 0 0;
+  gap: 0.85rem 2.25rem;
+  margin: clamp(2.5rem, 5vh, 3.5rem) 0 0;
 }
 
 /* Page hero (inner pages) */
 
 .page-hero {
   padding:
-    calc(var(--header-h) + clamp(3rem, 8vh, 5rem))
-    clamp(1.25rem, 4vw, 3rem)
-    clamp(2.5rem, 6vh, 4rem);
+    calc(var(--header-h) + clamp(4rem, 10vh, 6.5rem))
+    clamp(1.5rem, 5vw, 4rem)
+    clamp(3.25rem, 7vh, 4.75rem);
 }
 
 .page-hero__inner {
@@ -517,19 +560,20 @@ a {
 
 .page-hero__title {
   margin: 0;
-  font-family: "Jost", sans-serif;
+  font-family: "Jost", "Shippori Mincho", serif;
   font-weight: 500;
-  font-size: clamp(2.4rem, 7vw, 4.5rem);
-  letter-spacing: 0.14em;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  letter-spacing: 0.18em;
   line-height: 1;
 }
 
 .page-hero__lead {
-  margin: 1.25rem 0 0;
-  max-width: 32rem;
+  margin: 1.75rem 0 0;
+  max-width: 26rem;
   color: var(--ink-soft);
-  font-size: 1rem;
-  line-height: 2;
+  font-size: 0.9rem;
+  line-height: 2.25;
+  letter-spacing: 0.08em;
 }
 
 .page-hero__actions {
@@ -596,19 +640,20 @@ a {
 }
 
 .about-intro h2 {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.75rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  line-height: 1.55;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  line-height: 1.65;
+  letter-spacing: 0.1em;
 }
 
 .about-intro p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2.05;
+  font-size: 0.9rem;
+  line-height: 2.25;
+  letter-spacing: 0.06em;
 }
 
 .about-intro p:last-child {
@@ -623,19 +668,20 @@ a {
 }
 
 .about-copy h2 {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.75rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  line-height: 1.55;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  line-height: 1.65;
+  letter-spacing: 0.1em;
 }
 
 .about-copy p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2.05;
+  font-size: 0.9rem;
+  line-height: 2.25;
+  letter-spacing: 0.06em;
 }
 
 .about-visual {
@@ -670,8 +716,11 @@ a {
 }
 
 .about-note dd {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
+  margin: 0.55rem 0 0;
+  font-family: "Jost", "Shippori Mincho", serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
   color: var(--ink);
 }
 
@@ -704,10 +753,10 @@ a {
 .about-owner__copy h3 {
   margin: 0 0 1.5rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: clamp(1.5rem, 2.8vw, 2rem);
-  line-height: 1.5;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+  line-height: 1.6;
+  letter-spacing: 0.1em;
 }
 
 .about-owner__copy p {
@@ -755,20 +804,21 @@ a {
 }
 
 .order-baby__copy h2 {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.75rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  line-height: 1.55;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.8vw, 2.05rem);
+  line-height: 1.7;
+  letter-spacing: 0.1em;
 }
 
 .order-baby__copy p {
-  margin: 0 0 1.15rem;
-  max-width: 36rem;
+  margin: 0 0 1.35rem;
+  max-width: 32rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2.05;
+  font-size: 0.9rem;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
 }
 
 .order-baby__copy p:last-child {
@@ -836,7 +886,7 @@ a {
   grid-template-columns: 3.5rem 1fr;
   gap: 1.25rem;
   align-items: start;
-  padding: 1.5rem 0;
+  padding: 1.85rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -850,20 +900,21 @@ a {
 }
 
 .order-flow__list h3 {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.7rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
   color: var(--ink);
 }
 
 .order-flow__list p {
   margin: 0;
-  max-width: 40rem;
+  max-width: 36rem;
   color: var(--ink-soft);
-  font-size: 0.95rem;
-  line-height: 1.95;
+  font-size: 0.88rem;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
 }
 
 .order-flow__list strong {
@@ -942,17 +993,17 @@ a {
 }
 
 .text-link {
-  font-family: "Jost", sans-serif;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  color: var(--sage-deep);
-  border-bottom: 1px solid rgba(95, 107, 84, 0.35);
+  font-family: "Jost", "Shippori Mincho", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(42, 38, 34, 0.28);
   transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .text-link:hover {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
+  color: var(--sage-deep);
+  border-bottom-color: var(--sage-deep);
 }
 
 .instagram-link {
@@ -1131,11 +1182,11 @@ a {
 
 .menu-block__title {
   margin: 0;
-  font-family: "Jost", sans-serif;
+  font-family: "Jost", "Shippori Mincho", serif;
   font-weight: 500;
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
-  letter-spacing: 0.12em;
-  line-height: 1.2;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  letter-spacing: 0.2em;
+  line-height: 1.3;
 }
 
 .menu-block__text {
@@ -1158,12 +1209,15 @@ a {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem 1.5rem;
   align-items: start;
-  padding: 1.35rem 0;
+  padding: 1.65rem 0;
   border-bottom: 1px solid var(--line);
 }
 
 .menu-list__name {
+  font-family: "Shippori Mincho", serif;
   font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   color: var(--ink);
 }
 
@@ -1236,10 +1290,11 @@ a {
 }
 
 .collection-brand__body p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2.05;
+  font-size: 0.9rem;
+  line-height: 2.25;
+  letter-spacing: 0.05em;
 }
 
 .collection-brand__body p:last-child {
@@ -1303,11 +1358,21 @@ a {
   object-fit: cover;
 }
 
+.collection-craft__visual--poster {
+  aspect-ratio: 2 / 3;
+}
+
 .collection-craft__copy p {
-  margin: 0;
+  margin: 0 0 1.5rem;
+  max-width: 34rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 2.05;
+  font-size: 0.9rem;
+  line-height: 2.25;
+  letter-spacing: 0.05em;
+}
+
+.collection-craft__copy p:last-child {
+  margin-bottom: 0;
 }
 
 .collection-gallery {
@@ -1511,7 +1576,7 @@ a {
 /* Footer */
 
 .site-footer {
-  padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 3rem;
+  padding: 3.25rem clamp(1.5rem, 5vw, 4rem) 3.5rem;
   border-top: 1px solid var(--line);
 }
 
@@ -1527,14 +1592,14 @@ a {
 
 .site-footer__brand {
   font-family: "Jost", sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
 }
 
 .site-footer__meta {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--ink-soft);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 /* Reveal on scroll */
@@ -1596,7 +1661,7 @@ a {
   align-items: start;
 }
 
-.repair-case__copy h3 {
+.repair-case__copy h2 {
   margin: 0.35rem 0 0.4rem;
   font-family: "Shippori Mincho", serif;
   font-weight: 600;
@@ -1721,13 +1786,26 @@ a {
     justify-content: flex-start;
   }
 
-  .about-note,
-  .local-repair__list {
+  .about-note {
     grid-template-columns: 1fr;
+  }
+
+  .atelier-index__list {
+    grid-template-columns: 1fr 1fr;
   }
 
   .product-row {
     grid-template-columns: 100px 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .atelier-index__list {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-index__list p {
+    max-width: none;
   }
 }
 
@@ -1788,17 +1866,39 @@ a {
   }
 
   .hero__title {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
   }
+
+  .hero__title span.hero__title-ja {
+    letter-spacing: 0.18em;
+  }
+}
+
+body.page-event .site-footer {
+  background: #141210;
+  color: rgba(244, 239, 230, 0.78);
+  border-top-color: transparent;
+}
+
+body.page-event .site-footer__brand,
+body.page-event .site-footer__meta,
+body.page-event .site-footer .text-link {
+  color: rgba(244, 239, 230, 0.78);
+}
+
+body.page-event .site-footer .text-link {
+  border-bottom-color: rgba(244, 239, 230, 0.35);
 }
 
 /* Event */
 
 .event-stage {
+  background: #141210;
+  color: #f4efe6;
   padding:
-    calc(var(--header-h) + clamp(1.75rem, 4vh, 2.75rem))
-    clamp(1.25rem, 4vw, 3rem)
-    clamp(1rem, 3vh, 2rem);
+    calc(var(--header-h) + clamp(3.5rem, 9vh, 6rem))
+    clamp(1.5rem, 5vw, 4rem)
+    clamp(3rem, 8vh, 5rem);
 }
 
 .event-stage__inner {
@@ -1806,11 +1906,63 @@ a {
   margin: 0 auto;
 }
 
+.event-stage .section__label {
+  color: #c4a574;
+}
+
+.event-stage .event-headline {
+  max-width: 11em;
+  margin-bottom: 1.6rem;
+  color: #f7f2ea;
+  font-weight: 500;
+  font-size: clamp(2.05rem, 4.8vw, 3.4rem);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
 .event-stage__lead {
-  max-width: 36rem;
+  max-width: 24rem;
   margin: 0;
-  color: var(--ink-soft);
-  line-height: 1.95;
+  color: rgba(244, 239, 230, 0.7);
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  line-height: 2.15;
+}
+
+.event-stage .event-points li {
+  color: rgba(244, 239, 230, 0.86);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.event-stage .event-points img {
+  filter: brightness(1.45);
+}
+
+.event-stage .btn--solid {
+  background: #f4efe6;
+  color: #141210;
+  border-color: #f4efe6;
+}
+
+.event-stage .btn--solid:hover {
+  background: transparent;
+  color: #f4efe6;
+  border-color: rgba(244, 239, 230, 0.72);
+}
+
+.event-stage .btn--line {
+  color: #f4efe6;
+  border-color: rgba(244, 239, 230, 0.38);
+}
+
+.event-stage .btn--line:hover {
+  color: #f4efe6;
+  border-color: #f4efe6;
+}
+
+.event-stage + .section {
+  padding-top: clamp(5.5rem, 12vh, 8rem);
 }
 
 .event-stage__actions {
@@ -1969,18 +2121,43 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__media img,
+  .hero__content,
+  .page-hero__inner {
+    animation: none;
+  }
+
+  .hero__media img { transform: none; }
+
+  .gallery__item img,
+  .order-gallery__item img,
+  .instagram-grid__item img,
+  .mercari-card,
+  .mercari-card__visual img,
+  .repair-case img,
+  .event-hero__photo img,
+  .event-banner__media img,
   .rendo-gallery__scroller {
+    transition: none;
     scroll-behavior: auto;
   }
 }
 
 .event-headline {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
-  font-size: clamp(1.7rem, 3.4vw, 2.45rem);
-  line-height: 1.55;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  line-height: 1.65;
+  letter-spacing: 0.08em;
 }
 
 .event-banner {
@@ -2044,7 +2221,7 @@ a {
 .event-hero__title {
   margin: 0;
   font-family: "Shippori Mincho", serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.55rem, 2.9vw, 2.6rem);
   line-height: 1.38;
   letter-spacing: 0.02em;
@@ -2697,5 +2874,87 @@ a {
 
   .event-points--row {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+.page-hero__title--wrap {
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+}
+
+.detail-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.2rem;
+  margin: 0 0 2.75rem;
+}
+
+.detail-jump a {
+  font-size: 0.92rem;
+  border-bottom: 1px solid rgba(95, 107, 84, 0.45);
+}
+
+.detail-block {
+  margin-top: clamp(2.75rem, 6vh, 4rem);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.detail-block .section__text {
+  max-width: 40rem;
+}
+
+.detail-block h3 {
+  margin: 2rem 0 0;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.detail-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.detail-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-list__name {
+  margin: 0;
+  color: var(--ink);
+}
+
+.detail-list__desc {
+  margin: 0.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.detail-list__meta {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.03em;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .detail-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-list__meta {
+    text-align: left;
   }
 }

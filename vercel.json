@@ -1,5 +1,16 @@
 {
   "cleanUrls": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
   "functions": {
     "api/reservations.js": {
       "regions": ["hnd1"]
