@@ -239,6 +239,17 @@ a {
   color: rgba(250, 249, 246, 0.88);
 }
 
+.hero__title span.hero__title-ja {
+  margin-top: 1rem;
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(0.95rem, 2.4vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
+  text-transform: none;
+  opacity: 0.94;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -443,6 +454,46 @@ a {
   flex-wrap: wrap;
   gap: 0.85rem;
   justify-content: flex-end;
+}
+
+.contact-band__address {
+  margin: 1.35rem 0 0;
+  font-style: normal;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.95;
+}
+
+.local-repair__list {
+  list-style: none;
+  margin: 2.75rem 0 0;
+  padding: 1.75rem 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.local-repair__list h3 {
+  margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+}
+
+.local-repair__list p {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.95;
+}
+
+.local-repair__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem 1.75rem;
+  margin: 2.25rem 0 0;
 }
 
 /* Page hero (inner pages) */
@@ -1666,7 +1717,8 @@ a {
     justify-content: flex-start;
   }
 
-  .about-note {
+  .about-note,
+  .local-repair__list {
     grid-template-columns: 1fr;
   }
 
