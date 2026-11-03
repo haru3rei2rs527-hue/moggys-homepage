@@ -37,6 +37,8 @@ body {
   line-height: 1.9;
   letter-spacing: 0.04em;
   background: var(--cream);
+  overflow-wrap: break-word;
+  word-break: auto-phrase;
 }
 
 h1,
@@ -173,6 +175,60 @@ a {
   height: 1px;
   margin: 6px auto;
   background: var(--ink);
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.65rem, 1.6vw, 1.35rem);
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lang a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.2rem;
+  color: var(--ink-soft);
+}
+
+.lang a[aria-current="true"] {
+  color: var(--ink);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: center calc(50% + 0.55em);
+}
+
+.lang a:hover {
+  color: var(--ink);
+}
+
+.lang a:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .brand__text {
+    display: none;
+  }
+
+  .lang {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
 }
 
 /* ----- Hero ----- */
@@ -1807,9 +1863,13 @@ a {
   .atelier-index__list p {
     max-width: none;
   }
+
+  .collection-jump .btn {
+    flex: 1 1 12rem;
+  }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1320px) {
   .nav-toggle {
     display: block;
   }
@@ -1820,7 +1880,7 @@ a {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
+    gap: 0.2rem;
     padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 1.75rem;
     background: rgba(242, 239, 230, 0.97);
     border-bottom: 1px solid var(--line);
@@ -1829,6 +1889,11 @@ a {
   .nav.is-open {
     display: flex;
     z-index: 2;
+    background: var(--cream);
+  }
+
+  .nav a {
+    padding: 0.7rem 0;
   }
 
   .nav-backdrop:not([hidden]) {
@@ -2017,8 +2082,8 @@ body.page-event .site-footer .text-link {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -2097,16 +2162,26 @@ body.page-event .site-footer .text-link {
 }
 
 .rendo-gallery__dots button {
-  width: 7px;
-  height: 7px;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: #cfc6b8;
+  background: transparent;
   cursor: pointer;
 }
 
-.rendo-gallery__dots button.is-current {
+.rendo-gallery__dots button::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cfc6b8;
+}
+
+.rendo-gallery__dots button.is-current::before {
   background: var(--sage-deep);
 }
 
@@ -2348,6 +2423,11 @@ body.page-event .site-footer .text-link {
     font-size: clamp(1.2rem, 5.8vw, 1.7rem);
   }
 
+  .event-hero__title span,
+  .event-hero__cta {
+    white-space: normal;
+  }
+
   .event-hero__lead {
     margin-top: 0.55rem;
     font-size: 0.92rem;
@@ -2450,7 +2530,7 @@ body.page-event .site-footer .text-link {
 }
 
 .event-points span {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .event-stage .event-points {
@@ -2890,6 +2970,10 @@ body.page-event .site-footer .text-link {
 }
 
 .detail-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.35rem 0.2rem;
   font-size: 0.92rem;
   border-bottom: 1px solid rgba(95, 107, 84, 0.45);
 }
@@ -2956,5 +3040,397 @@ body.page-event .site-footer .text-link {
 
   .detail-list__meta {
     text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .event-points--row {
+    grid-template-columns: 1fr;
+    row-gap: 0.7rem;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-footer__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .site-footer__meta > span[aria-hidden="true"] {
+    display: none;
+  }
+
+  .site-footer__meta .text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .section,
+  .page-hero,
+  .event-stage,
+  .site-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero__content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand__mark {
+    height: 44px;
+  }
+}
+
+/* RENDO lineup */
+
+.event-banner__more {
+  margin: 1.15rem 0 0;
+}
+
+.collection-craft__visual--product {
+  aspect-ratio: 5 / 4;
+  background: #faf9f6;
+}
+
+.collection-craft__visual--product img {
+  object-fit: contain;
+}
+
+.rendo-points {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem 1.5rem;
+  margin: 0.5rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.rendo-points li {
+  min-width: 0;
+}
+
+.rendo-points span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--sage-deep);
+}
+
+.rendo-points strong {
+  display: block;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+.rendo-points p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+.lineup-note {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.9;
+}
+
+.lineup-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.lineup-filters button {
+  min-height: 44px;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid rgba(42, 38, 34, 0.28);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.lineup-filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+
+.lineup-filters button:hover {
+  border-color: var(--sage-deep);
+}
+
+.lineup-filters button[aria-pressed="true"]:hover {
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+  color: var(--cream);
+}
+
+.lineup-filters button:focus-visible,
+.lineup-card:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+.lineup-count {
+  margin: 0 0 1.25rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+
+.lineup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem 0.75rem;
+}
+
+.lineup-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: inherit;
+}
+
+.lineup-card__visual {
+  position: relative;
+  display: block;
+  background: #faf9f6;
+}
+
+.lineup-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.lineup-card__badge,
+.shoe__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0 0.45rem;
+  border: 1px solid var(--sage-deep);
+  background: rgba(250, 249, 246, 0.92);
+  color: var(--sage-deep);
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.lineup-card__badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.lineup-card__code,
+.shoe__code {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--sage-deep);
+}
+
+.lineup-card__name {
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+}
+
+.lineup-card__price {
+  margin-top: 0.25rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.lineup-card:hover .lineup-card__name {
+  color: var(--sage-deep);
+}
+
+.lineup-models {
+  padding-top: 0;
+}
+
+.shoe {
+  display: grid;
+  gap: 1.15rem 2rem;
+  margin-top: clamp(2.5rem, 6vh, 3.75rem);
+  padding-top: clamp(2rem, 5vh, 2.75rem);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
+.shoe__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.shoe__photos img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: contain;
+  background: #faf9f6;
+}
+
+.shoe__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 0.65rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.shoe h2 {
+  margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+}
+
+.shoe__code {
+  margin: 0 0 0.35rem;
+}
+
+.shoe__lead {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.95;
+}
+
+.shoe-spec {
+  margin: 1.25rem 0 0;
+}
+
+.shoe-spec div {
+  display: grid;
+  grid-template-columns: 6.75rem minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.shoe-spec dt {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+.shoe-spec dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.shoe__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.15rem;
+  margin-top: 1.25rem;
+}
+
+.shoe__actions .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+.lineup-credit {
+  margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+
+.lineup-card[hidden],
+.shoe[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .rendo-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lineup-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem 1rem;
+  }
+
+  .shoe {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+  }
+}
+
+.lineup {
+  padding-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.lineup-models .shoe:first-child {
+  margin-top: 0;
+}
+
+.shoe__kicker .shoe__code {
+  display: inline;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lineup-filters button,
+  .lineup-card__name,
+  .collection-craft__visual--product img {
+    transition: none;
   }
 }

@@ -1,12 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://moggys-shoe-studio.com/</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/repair.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/repair-works.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/collection.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/about.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/access.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/order.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/event.html</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://moggys-shoe-studio.com/event-order.html</loc><lastmod>2026-10-15</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://moggys-shoe-studio.com/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/repair.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/repair.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/repair.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/repair.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/repair.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/repair.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/repair-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/repair-works.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/repair-works.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/repair-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/repair-works.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/repair-works.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/collection.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/collection.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/collection.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/collection.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/collection.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/collection.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/access.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/access.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/access.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/access.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/access.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/access.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/order.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/order.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/order.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/order.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/order.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/order.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/event.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/event.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/event.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/event.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/event.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/event.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/event-order.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/event-order.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/event-order.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/event-order.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/event-order.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/event-order.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/rendo.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/rendo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/rendo.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/rendo.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/rendo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/rendo.html"/>
+  </url>
 </urlset>
