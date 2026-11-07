@@ -1,3 +1,12 @@
+/* 会の案内を期限で隠す。来年は HTML の data-expire と日付の文言を揃えて変える。 */
+(() => {
+  const now = Date.now();
+  document.querySelectorAll("[data-expire]").forEach((el) => {
+    const expire = Date.parse(el.getAttribute("data-expire") || "");
+    if (!Number.isNaN(expire) && now >= expire) el.hidden = true;
+  });
+})();
+
 (() => {
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
@@ -16,8 +25,11 @@
     backdrop.type = "button";
     backdrop.className = "nav-backdrop";
     backdrop.hidden = true;
-    backdrop.setAttribute("aria-label", "メニューを閉じる");
-    (header || document.body).append(backdrop);
+    backdrop.setAttribute(
+      "aria-label",
+      document.documentElement.lang === "en" ? "Close menu" : "メニューを閉じる"
+    );
+    document.body.append(backdrop);
 
     const closeNav = () => {
       nav.classList.remove("is-open");
@@ -32,6 +44,14 @@
     });
 
     backdrop.addEventListener("click", closeNav);
+
+    if (header) {
+      header.addEventListener("click", (event) => {
+        if (!nav.classList.contains("is-open")) return;
+        if (nav.contains(event.target) || toggle.contains(event.target)) return;
+        closeNav();
+      });
+    }
 
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeNav);

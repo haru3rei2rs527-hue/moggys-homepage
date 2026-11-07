@@ -1,59 +1,137 @@
 (() => {
-  const scroller = document.querySelector(".rendo-gallery__scroller");
-  const dots = document.querySelector(".rendo-gallery__dots");
-  const prev = document.querySelector(".rendo-gallery__prev");
-  const next = document.querySelector(".rendo-gallery__next");
-  if (!scroller || !dots) return;
-  const slides = [...scroller.querySelectorAll("figure")];
+  const enPage = document.documentElement.lang === "en";
 
-  const nearest = () => {
-    const origin = scroller.getBoundingClientRect().left;
-    let index = 0;
-    let best = Infinity;
-    slides.forEach((slide, item) => {
-      const distance = Math.abs(slide.getBoundingClientRect().left - origin);
-      if (distance < best) {
-        best = distance;
-        index = item;
+  document.querySelectorAll(".rendo-gallery").forEach((gallery) => {
+    const scroller = gallery.querySelector(".rendo-gallery__scroller");
+    const dots = gallery.querySelector(".rendo-gallery__dots");
+    const prev = gallery.querySelector(".rendo-gallery__prev");
+    const next = gallery.querySelector(".rendo-gallery__next");
+    if (!scroller || !dots) return;
+    const slides = [...scroller.querySelectorAll(":scope > figure")];
+
+    const nearest = () => {
+      const origin = scroller.getBoundingClientRect().left;
+      let index = 0;
+      let best = Infinity;
+      slides.forEach((slide, item) => {
+        const distance = Math.abs(slide.getBoundingClientRect().left - origin);
+        if (distance < best) {
+          best = distance;
+          index = item;
+        }
+      });
+      return index;
+    };
+
+    const buttons = slides.map((_, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", enPage ? `Photo ${index + 1}` : `${index + 1}枚目`);
+      button.addEventListener("click", () => {
+        slides[index].scrollIntoView({ inline: "start", block: "nearest" });
+      });
+      dots.append(button);
+      return button;
+    });
+
+    const showDots = (index) => {
+      const count = buttons.length;
+      const apply = (size) => {
+        const half = Math.floor((size - 1) / 2);
+        let start = index - half;
+        let end = start + size - 1;
+        if (start < 0) {
+          end = Math.min(count - 1, end - start);
+          start = 0;
+        }
+        if (end > count - 1) {
+          start = Math.max(0, start - (end - (count - 1)));
+          end = count - 1;
+        }
+        buttons.forEach((button, item) => {
+          button.hidden = item < start || item > end;
+        });
+      };
+
+      apply(count);
+      if (!dots.clientWidth || dots.scrollWidth <= dots.clientWidth) return;
+
+      let low = 1;
+      let high = count - 1;
+      let best = 1;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        apply(mid);
+        if (dots.scrollWidth <= dots.clientWidth) {
+          best = mid;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
       }
-    });
-    return index;
-  };
+      apply(best);
+    };
 
-  const buttons = slides.map((_, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.setAttribute("aria-label", `${index + 1}枚目`);
+    const paint = () => {
+      const index = nearest();
+      buttons.forEach((button, item) => {
+        const current = item === index;
+        button.classList.toggle("is-current", current);
+        button.setAttribute("aria-current", current ? "true" : "false");
+      });
+      showDots(index);
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === slides.length - 1;
+    };
+
+    const move = (direction) => {
+      const slide = slides[0];
+      if (!slide) return;
+      const styles = getComputedStyle(scroller);
+      const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      scroller.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap) });
+    };
+
+    scroller.addEventListener("scroll", paint, { passive: true });
+    if (prev) prev.addEventListener("click", () => move(-1));
+    if (next) next.addEventListener("click", () => move(1));
+    if (typeof ResizeObserver === "function") {
+      new ResizeObserver(() => paint()).observe(dots);
+    }
+    paint();
+  });
+})();
+
+(() => {
+  const dialog = document.querySelector(".photo-zoom");
+  if (!dialog || typeof dialog.showModal !== "function") return;
+  const photo = dialog.querySelector("img");
+  const caption = dialog.querySelector("figcaption");
+  const close = dialog.querySelector(".photo-zoom__close");
+
+  document.querySelectorAll(".rendo-gallery__zoom").forEach((button) => {
     button.addEventListener("click", () => {
-      slides[index].scrollIntoView({ inline: "start", block: "nearest" });
+      const source = button.querySelector("img");
+      const figure = button.closest("figure");
+      const code = figure.querySelector(".rendo-gallery__code")?.textContent || "";
+      const name = figure.querySelector(".rendo-gallery__name")?.textContent || "";
+      photo.src = source.currentSrc || source.src;
+      photo.alt = source.alt;
+      photo.width = Number(source.getAttribute("width")) || source.naturalWidth;
+      photo.height = Number(source.getAttribute("height")) || source.naturalHeight;
+      caption.textContent = name ? `${code}\n${name}` : code;
+      dialog.showModal();
     });
-    dots.append(button);
-    return button;
   });
 
-  const paint = () => {
-    const index = nearest();
-    buttons.forEach((button, item) => {
-      const current = item === index;
-      button.classList.toggle("is-current", current);
-      button.setAttribute("aria-current", current ? "true" : "false");
-    });
-    if (prev) prev.disabled = index === 0;
-    if (next) next.disabled = index === slides.length - 1;
-  };
-
-  const move = (direction) => {
-    const slide = slides[0];
-    if (!slide) return;
-    const styles = getComputedStyle(scroller);
-    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
-    scroller.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap) });
-  };
-
-  scroller.addEventListener("scroll", paint, { passive: true });
-  if (prev) prev.addEventListener("click", () => move(-1));
-  if (next) next.addEventListener("click", () => move(1));
-  paint();
+  close.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("close", () => {
+    photo.removeAttribute("src");
+    photo.alt = "";
+  });
 })();
 
 (() => {
@@ -66,6 +144,8 @@
   const again = document.getElementById("reserve-again");
   if (!board || !form || !success) return;
 
+  const en = document.documentElement.lang === "en";
+  const say = (ja, english) => (en ? english : ja);
   const slots = [...board.querySelectorAll(".slot")];
   const storageKey = "moggys-rendo-cancel";
   let selected = null;
@@ -74,9 +154,9 @@
   let loadToken = 0;
 
   const labels = {
-    open: "空席",
-    taken: "満席",
-    past: "終了",
+    open: say("空席", "Open"),
+    taken: say("満席", "Full"),
+    past: say("終了", "Closed"),
     unknown: "—",
   };
 
@@ -124,34 +204,34 @@
   const fieldRules = {
     name: (value) => {
       const name = String(value ?? "").replace(/\s+/g, " ").trim();
-      if (!name) return "お名前を入力してください。";
-      if (name.length > 40) return "お名前は40文字以内にしてください。";
+      if (!name) return say("お名前を入力してください。", "Enter your name.");
+      if (name.length > 40) return say("お名前は40文字以内にしてください。", "Use 40 characters or fewer for your name.");
       return "";
     },
     phone: (value) => {
-      if (!String(value ?? "").trim()) return "電話番号を入力してください。";
-      if (!normalizePhone(value)) return "桁数を確認してください。例: 090-1234-5678";
+      if (!String(value ?? "").trim()) return say("電話番号を入力してください。", "Enter your phone number.");
+      if (!normalizePhone(value)) return say("桁数を確認してください。例: 090-1234-5678", "Check the number of digits. Example: 090-1234-5678");
       return "";
     },
     email: (value) => {
       const email = String(value ?? "").trim();
       if (!email) return "";
       if (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return "メールアドレスの形を確認してください。空欄でも送れます。";
+        return say("メールアドレスの形を確認してください。空欄でも送れます。", "Check the email address. You can leave it blank.");
       }
       return "";
     },
     note: (value) => {
-      if (String(value ?? "").trim().length > 400) return "メモは400文字以内にしてください。";
+      if (String(value ?? "").trim().length > 400) return say("メモは400文字以内にしてください。", "Keep the note within 400 characters.");
       return "";
     },
   };
 
   const fieldOk = {
-    name: "このお名前で送れます。",
-    phone: "この番号で送れます。",
-    email: "このメールで送れます。",
-    note: "この内容で送れます。",
+    name: say("このお名前で送れます。", "This name can be sent."),
+    phone: say("この番号で送れます。", "This number can be sent."),
+    email: say("このメールで送れます。", "This email can be sent."),
+    note: say("この内容で送れます。", "This note can be sent."),
   };
 
   const touched = {};
@@ -263,11 +343,20 @@
     root.style.scrollBehavior = previous;
   };
 
+  const dayText = (reservation) => {
+    const slot = document.querySelector(`.slot[data-date="${reservation.date}"]`);
+    const label = slot?.closest(".slot-day")?.querySelector(".slot-day__date")?.textContent?.replace(/\s+/g, " ").trim();
+    return label || reservation.ja;
+  };
+
   const showSuccess = (reservation, scroll) => {
     current = reservation;
     writeSaved(reservation);
-    document.getElementById("reserve-success-text").textContent =
-      `${reservation.ja} ${reservation.time}–${reservation.end} で承りました。当日、工房でお待ちしています。`;
+    const when = dayText(reservation);
+    document.getElementById("reserve-success-text").textContent = say(
+      `${when} ${reservation.time}–${reservation.end} で承りました。当日、工房でお待ちしています。`,
+      `Booked for ${when}, ${reservation.time}–${reservation.end}. We will see you at the studio.`
+    );
     document.getElementById("reserve-code").textContent = reservation.code;
     form.hidden = true;
     success.hidden = false;
@@ -308,17 +397,17 @@
     if (selected) {
       selectedLabel.textContent = `${selected.ja} ${selected.time}–${selected.end}`;
     } else {
-      selectedLabel.textContent = "時間を選択してください。";
+      selectedLabel.textContent = say("時間を選択してください。", "Choose a time.");
     }
 
     if (state && state.ended) {
-      setStatus("この会の受付は終了しました。");
+      setStatus(say("この会の受付は終了しました。", "Reservations for this event are closed."));
     } else if (!accepting) {
-      setStatus("ウェブ予約の準備中です。空き状況はお電話（052-784-5492）でご確認ください。");
+      setStatus(say("ウェブ予約の準備中です。空き状況はお電話（052-784-5492）でご確認ください。", "Online booking is not open yet. Call 052-784-5492 to check availability."));
     } else if (!success.hidden) {
       setStatus("");
     } else {
-      setStatus("空席を選ぶと、入力欄が開きます。");
+      setStatus(say("空席を選ぶと、入力欄が開きます。", "Choose an open time to show the form."));
     }
     if (success.hidden) showForm();
   };
@@ -336,7 +425,7 @@
       if (token !== loadToken) return;
       accepting = false;
       paint(null);
-      setStatus("空き状況を確認できません。お電話（052-784-5492）でご予約ください。");
+      setStatus(say("空き状況を確認できません。お電話（052-784-5492）でご予約ください。", "Availability could not be loaded. Please call 052-784-5492."));
       form.hidden = true;
     }
   };
@@ -368,7 +457,7 @@
     setError("");
     submitted = true;
     if (!selected) {
-      setError("時間を選んでください。");
+      setError(say("時間を選んでください。", "Choose a time."));
       scrollToEl(status);
       return;
     }
@@ -385,8 +474,9 @@
     const phone = document.getElementById("guest-phone").value.trim();
     const company = form.querySelector("[name=company]");
     const submit = document.getElementById("reserve-submit");
+    const submitLabel = submit.textContent;
     submit.disabled = true;
-    submit.textContent = "送信中…";
+    submit.textContent = say("送信中…", "Sending…");
     try {
       const response = await fetch("/api/reservations.php", {
         method: "POST",
@@ -403,7 +493,7 @@
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
-        const message = data.message || "送信できませんでした。";
+        const message = data.message || say("送信できませんでした。", "The reservation could not be sent.");
         await load();
         setStatus(message);
         showServerError(message);
@@ -415,11 +505,11 @@
       showSuccess(data.reservation, true);
       await load();
     } catch {
-      setError("送信できませんでした。時間をおいてもう一度お試しください。");
+      setError(say("送信できませんでした。時間をおいてもう一度お試しください。", "The reservation could not be sent. Please try again in a moment."));
       scrollToEl(error);
     } finally {
       submit.disabled = false;
-      submit.textContent = "この時間で予約する";
+      submit.textContent = submitLabel;
     }
   });
 
@@ -436,7 +526,7 @@
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok && data.error !== "missing") {
-      setStatus(data.message || "取り消せませんでした。お電話でご連絡ください。");
+      setStatus(data.message || say("取り消せませんでした。お電話でご連絡ください。", "The reservation could not be canceled. Please call the studio."));
       return;
     }
     clearSaved();
@@ -444,7 +534,7 @@
     success.hidden = true;
     again.hidden = true;
     await load();
-    setStatus("予約を取り消しました。別の時間を選べます。");
+    setStatus(say("予約を取り消しました。別の時間を選べます。", "The reservation was canceled. You can choose another time."));
   };
 
   document.getElementById("cancel-reservation").addEventListener("click", () => {
@@ -458,13 +548,13 @@
     const ics = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//MOGGYS SHOE STUDIO//RENDO Event//JA",
+      say("PRODID:-//MOGGYS SHOE STUDIO//RENDO Event//JA", "PRODID:-//MOGGYS SHOE STUDIO//RENDO Event//EN"),
       "BEGIN:VEVENT",
       `UID:${current.code}@moggys-shoe-studio.com`,
       `DTSTART;TZID=Asia/Tokyo:${start}`,
       `DTEND;TZID=Asia/Tokyo:${end}`,
-      "SUMMARY:RENDO パターンオーダー会",
-      "LOCATION:MOGGYS SHOE STUDIO 名古屋市千種区高見1-8-5",
+      say("SUMMARY:RENDO パターンオーダー会", "SUMMARY:RENDO pattern order"),
+      say("LOCATION:MOGGYS SHOE STUDIO 名古屋市千種区高見1-8-5", "LOCATION:MOGGYS SHOE STUDIO 1-8-5 Takami, Chikusa-ku, Nagoya"),
       "END:VEVENT",
       "END:VCALENDAR",
     ].join("\r\n");
@@ -483,8 +573,8 @@
       slot.classList.remove("is-selected");
       slot.setAttribute("aria-pressed", "false");
     });
-    selectedLabel.textContent = "時間を選択してください。";
-    setStatus("別の時間を選ぶ場合も、お名前と電話番号が必要です。");
+    selectedLabel.textContent = say("時間を選択してください。", "Choose a time.");
+    setStatus(say("別の時間を選ぶ場合も、お名前と電話番号が必要です。", "Name and phone are still required for another time."));
   });
 
   const saved = readSaved();

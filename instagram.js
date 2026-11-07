@@ -51,10 +51,11 @@ async function loadInstagramFeed() {
 
       const img = document.createElement("img");
       img.src = post.imageUrl;
+      const enPage = document.documentElement.lang === "en";
       img.alt =
         post.altText ||
         post.prunedCaption?.split("\n").find(Boolean) ||
-        `Instagram投稿 ${index + 1}`;
+        (enPage ? `Instagram post ${index + 1}` : `Instagram投稿 ${index + 1}`);
       img.loading = index === 0 ? "eager" : "lazy";
 
       link.appendChild(img);

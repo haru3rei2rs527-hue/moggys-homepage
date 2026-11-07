@@ -41,6 +41,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/collection.html"/>
   </url>
   <url>
+    <loc>https://moggys-shoe-studio.com/used.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/used.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/used.html"/>
+  </url>
+  <url>
+    <loc>https://moggys-shoe-studio.com/en/used.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/used.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/used.html"/>
+  </url>
+  <url>
     <loc>https://moggys-shoe-studio.com/about.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://moggys-shoe-studio.com/about.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://moggys-shoe-studio.com/en/about.html"/>
