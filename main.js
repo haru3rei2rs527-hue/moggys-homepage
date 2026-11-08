@@ -145,3 +145,50 @@
 
   reveals.forEach((el) => io.observe(el));
 })();
+
+(() => {
+  const enPage = document.documentElement.lang === "en";
+  document.querySelectorAll(".rendo-home-gallery").forEach((gallery) => {
+    const scroller = gallery.querySelector(".rendo-home-gallery__scroller");
+    const prev = gallery.querySelector(".rendo-home-gallery__prev");
+    const next = gallery.querySelector(".rendo-home-gallery__next");
+    if (!scroller || !prev || !next) return;
+    const slides = [...scroller.children];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const nearest = () => {
+      const origin = scroller.getBoundingClientRect().left;
+      let index = 0;
+      let best = Infinity;
+      slides.forEach((slide, item) => {
+        const distance = Math.abs(slide.getBoundingClientRect().left - origin);
+        if (distance < best) {
+          best = distance;
+          index = item;
+        }
+      });
+      return index;
+    };
+
+    const paint = () => {
+      const index = nearest();
+      prev.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+    };
+
+    const move = (direction) => {
+      const slide = slides[nearest() + direction];
+      if (!slide) return;
+      slide.scrollIntoView({
+        inline: "start",
+        block: "nearest",
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    };
+
+    scroller.addEventListener("scroll", paint, { passive: true });
+    prev.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    paint();
+  });
+})();
