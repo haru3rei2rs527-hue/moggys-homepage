@@ -3730,30 +3730,72 @@ body.page-event .site-footer .text-link {
 
 .rendo-gallery--lineup {
   margin-top: 2.5rem;
-  padding: 1.35rem 0.85rem 1.15rem;
-  background: #141210;
+  padding: 0;
+  background: transparent;
 }
 
 .rendo-gallery--lineup .rendo-lineup__card {
   display: flex;
   flex-direction: column;
   background: transparent;
-  color: #f4efe6;
+  color: var(--ink);
   text-decoration: none;
   cursor: pointer;
 }
 
-.rendo-gallery--lineup .rendo-lineup__card:focus-visible {
-  outline: 2px solid #c4a574;
+.rendo-gallery--lineup .rendo-gallery__zoom {
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+}
+
+.rendo-gallery--lineup .rendo-gallery__zoom:focus-visible {
+  outline: 2px solid var(--sage-deep);
   outline-offset: 3px;
+}
+
+.rendo-gallery--lineup .rendo-lineup__card:focus-visible {
+  outline: 2px solid var(--sage-deep);
+  outline-offset: 3px;
+}
+
+.rendo-gallery--lineup img {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center 52%;
+  background: var(--cream);
+}
+
+.rendo-gallery--lineup .rendo-gallery__arrow {
+  top: calc(50% - 1.55rem);
 }
 
 .rendo-gallery--lineup .rendo-gallery__code {
   margin-top: 0.7rem;
+  color: var(--sage-deep);
 }
 
 .rendo-gallery--lineup .rendo-gallery__name {
-  min-height: 2.9em;
+  min-height: 2.6em;
+  color: var(--ink);
+}
+
+.rendo-gallery--lineup .rendo-gallery__scroller:focus-visible {
+  outline-color: var(--sage-deep);
+}
+
+.rendo-gallery--lineup .rendo-gallery__dots button::before {
+  background: rgba(42, 38, 34, 0.28);
+}
+
+.rendo-gallery--lineup .rendo-gallery__dots button.is-current::before {
+  background: var(--ink);
+}
+
+.rendo-gallery--lineup .rendo-gallery__dots button:focus-visible {
+  outline-color: var(--sage-deep);
 }
 
 .contact-dock {
