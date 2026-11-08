@@ -148,13 +148,13 @@
 
 (() => {
   const enPage = document.documentElement.lang === "en";
-  document.querySelectorAll(".rendo-home-gallery").forEach((gallery) => {
-    const scroller = gallery.querySelector(".rendo-home-gallery__scroller");
-    const prev = gallery.querySelector(".rendo-home-gallery__prev");
-    const next = gallery.querySelector(".rendo-home-gallery__next");
-    if (!scroller || !prev || !next) return;
-    const slides = [...scroller.children];
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".rendo-gallery--lineup").forEach((gallery) => {
+    const scroller = gallery.querySelector(".rendo-gallery__scroller");
+    const dots = gallery.querySelector(".rendo-gallery__dots");
+    const prev = gallery.querySelector(".rendo-gallery__prev");
+    const next = gallery.querySelector(".rendo-gallery__next");
+    if (!scroller || !dots || !prev || !next) return;
+    const slides = [...scroller.querySelectorAll(":scope > figure")];
 
     const nearest = () => {
       const origin = scroller.getBoundingClientRect().left;
@@ -170,25 +170,77 @@
       return index;
     };
 
+    const buttons = slides.map((_, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", enPage ? `Shoe ${index + 1}` : `${index + 1}足目`);
+      button.addEventListener("click", () => {
+        slides[index].scrollIntoView({ inline: "start", block: "nearest" });
+      });
+      dots.append(button);
+      return button;
+    });
+
+    const showDots = (index) => {
+      const count = buttons.length;
+      const apply = (size) => {
+        const half = Math.floor((size - 1) / 2);
+        let start = index - half;
+        let end = start + size - 1;
+        if (start < 0) {
+          end = Math.min(count - 1, end - start);
+          start = 0;
+        }
+        if (end > count - 1) {
+          start = Math.max(0, start - (end - (count - 1)));
+          end = count - 1;
+        }
+        buttons.forEach((button, item) => {
+          button.hidden = item < start || item > end;
+        });
+      };
+      apply(count);
+      if (!dots.clientWidth || dots.scrollWidth <= dots.clientWidth) return;
+      let low = 1;
+      let high = count - 1;
+      let best = 1;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        apply(mid);
+        if (dots.scrollWidth <= dots.clientWidth) {
+          best = mid;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+      apply(best);
+    };
+
     const paint = () => {
       const index = nearest();
+      buttons.forEach((button, item) => {
+        const current = item === index;
+        button.classList.toggle("is-current", current);
+        button.setAttribute("aria-current", current ? "true" : "false");
+      });
+      showDots(index);
       prev.disabled = index === 0;
       next.disabled = index === slides.length - 1;
     };
 
     const move = (direction) => {
-      const slide = slides[nearest() + direction];
+      const slide = slides[0];
       if (!slide) return;
-      slide.scrollIntoView({
-        inline: "start",
-        block: "nearest",
-        behavior: reduceMotion ? "auto" : "smooth",
-      });
+      const styles = getComputedStyle(scroller);
+      const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      scroller.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap) });
     };
 
     scroller.addEventListener("scroll", paint, { passive: true });
     prev.addEventListener("click", () => move(-1));
     next.addEventListener("click", () => move(1));
+    if (typeof ResizeObserver === "function") new ResizeObserver(() => paint()).observe(dots);
     paint();
   });
 })();
