@@ -3191,6 +3191,10 @@ body.page-event .site-footer .text-link {
   margin: 0 0 2.75rem;
 }
 
+.detail-jump--follow {
+  margin-top: 1.75rem;
+}
+
 .detail-jump a {
   display: inline-flex;
   align-items: center;
@@ -3545,7 +3549,8 @@ body.page-event .site-footer .text-link {
   color: var(--sage-deep);
 }
 
-.shoe h2 {
+.shoe h2,
+.shoe h3 {
   margin: 0;
   font-family: "Shippori Mincho", serif;
   font-weight: 500;
@@ -3848,4 +3853,35 @@ body.page-event .site-footer .text-link {
     outline: 2px solid var(--sage-deep);
     outline-offset: -3px;
   }
+}
+
+/* Leather guide */
+
+.page-hero__title--ja {
+  font-family: "Shippori Mincho", serif;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+}
+
+.page-hero__title--sentence {
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+}
+
+.shoe__photos--single {
+  grid-template-columns: 1fr;
+}
+
+.shoe__photos--single img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.shoe__use {
+  margin: 0.85rem 0 0;
+  color: var(--sage-deep);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
 }
